@@ -223,7 +223,7 @@ function calculateCaloriesScore(avgCalories: number): number {
     const target = 2000
     const lowerBound = 1800
     const upperBound = 2200
-    
+
     if (avgCalories >= lowerBound && avgCalories <= upperBound) return 100
     if (avgCalories >= 1600 && avgCalories < lowerBound) return 80
     if (avgCalories > upperBound && avgCalories <= 2400) return 80

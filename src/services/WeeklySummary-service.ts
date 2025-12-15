@@ -11,7 +11,7 @@ import {
 } from "../models/weekly-summary-model"
 import { UserJWTPayload } from "../models/user-model"
 import { prismaClient } from "../utils/database-util"
-import { WeeklySummaryValidation } from "../validations/weekly-summary-validation"
+import { WeeklySummaryValidation } from "../validations/WeeklySummary-validation"
 import { Validation } from "../validations/validation"
 
 export class WeeklySummaryService {
