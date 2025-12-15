@@ -1,7 +1,7 @@
-import { NextFunction, Response } from "express"
+import { Request, Response, NextFunction } from "express"
 import { UserRequest } from "../models/user-request-model"
-import { WeeklySummaryService } from "../services/weekly-summary-service"
-import { WeeklySummaryCreateRequest } from "../models/weekly-summary-model"
+import { WeeklySummaryService } from "../services/WeeklySummary-service"
+import { WeeklySummaryCreateRequest } from "../models/WeeklySummary-model"
 
 export class WeeklySummaryController {
     static async getAllWeeklySummaries(

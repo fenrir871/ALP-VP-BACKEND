@@ -1,4 +1,4 @@
-import { WeeklySummary } from "../../generated/prisma"
+import { WeeklySummary } from "../../generated/prisma/"
 import { ResponseError } from "../error/response-error"
 import {
     WeeklySummaryResponse,
@@ -8,7 +8,7 @@ import {
     toWeeklySummaryResponseList,
     toWeeklySummaryAnalytics,
     calculateScores
-} from "../models/weekly-summary-model"
+} from "../models/WeeklySummary-model"
 import { UserJWTPayload } from "../models/user-model"
 import { prismaClient } from "../utils/database-util"
 import { WeeklySummaryValidation } from "../validations/WeeklySummary-validation"
@@ -98,7 +98,7 @@ export class WeeklySummaryService {
         const weeklySummary = await prismaClient.weeklySummary.findFirst({
             where: {
                 user_id: userId,
-                weekly_id: weeklyId,
+                id: weeklyId,
             },
         })
 
@@ -254,7 +254,7 @@ export class WeeklySummaryService {
 
         await prismaClient.weeklySummary.delete({
             where: {
-                weekly_id: weeklyId,
+                id: weeklyId,
             },
         })
 

@@ -1,4 +1,4 @@
-import { WeeklySummary } from "../../generated/prisma"
+import { WeeklySummary } from "../../../generated/prisma/models"
 
 export interface WeeklySummaryResponse {
     weekly_id: number
@@ -54,7 +54,7 @@ export function toWeeklySummaryResponse(prismaWeeklySummary: WeeklySummary): Wee
     )
 
     return {
-        weekly_id: prismaWeeklySummary.weekly_id,
+        weekly_id: prismaWeeklySummary.id,
         user_id: prismaWeeklySummary.user_id,
         week_start_date: prismaWeeklySummary.week_start_date,
         avg_steps: prismaWeeklySummary.avg_steps,
