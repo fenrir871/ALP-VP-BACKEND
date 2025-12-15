@@ -1,6 +1,6 @@
 {
 
-"include": ["src/**/*"],
+  "include": ["src/**/*", ".vscode/prisma", "generated", "prisma/generated/**/*"],
 
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
