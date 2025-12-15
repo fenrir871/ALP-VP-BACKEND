@@ -1,4 +1,4 @@
-import { WeeklySummary } from "../../generated/prisma/"
+import { WeeklySummary } from "../../../generated/prisma/models/WeeklySummary"
 import { ResponseError } from "../error/response-error"
 import {
     WeeklySummaryResponse,

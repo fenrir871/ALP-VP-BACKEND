@@ -1,4 +1,4 @@
-import { WeeklySummary } from "../../../generated/prisma/models"
+import { WeeklySummary } from "../../../generated/prisma/models/WeeklySummary"
 
 export interface WeeklySummaryResponse {
     weekly_id: number
