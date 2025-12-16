@@ -17,6 +17,8 @@ datasource db {
 model User{
   id        Int     @id @default(autoincrement())
   name      String  @db.VarChar(100)
+  username  String  @unique @db.VarChar(50)
+  phone     String  @db.VarChar(20)
   email     String  @unique @db.VarChar(150)
   password  String  @db.VarChar(100)
 

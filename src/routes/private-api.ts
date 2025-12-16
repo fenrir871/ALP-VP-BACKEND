@@ -1,7 +1,7 @@
 import express from "express"
 import { authMiddleware } from "../middlewares/auth-middleware"
 import { DailyActivityController } from "../controllers/dailyactivity-controller"
-import { WeeklySummaryController } from "../controllers/weekly-summary-controller"
+import { WeeklySummaryController } from "../controllers/WeeklySummary-controller"
 
 export const privateRouter = express.Router()
 
