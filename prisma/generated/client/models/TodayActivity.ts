@@ -30,6 +30,7 @@ export type TodayActivityAvgAggregateOutputType = {
   id: number | null
   steps: number | null
   sleep_hours: number | null
+  water_intake: number | null
   calories: number | null
   user_id: number | null
 }
@@ -38,6 +39,7 @@ export type TodayActivitySumAggregateOutputType = {
   id: number | null
   steps: number | null
   sleep_hours: number | null
+  water_intake: number | null
   calories: number | null
   user_id: number | null
 }
@@ -47,6 +49,7 @@ export type TodayActivityMinAggregateOutputType = {
   date: Date | null
   steps: number | null
   sleep_hours: number | null
+  water_intake: number | null
   calories: number | null
   user_id: number | null
 }
@@ -56,6 +59,7 @@ export type TodayActivityMaxAggregateOutputType = {
   date: Date | null
   steps: number | null
   sleep_hours: number | null
+  water_intake: number | null
   calories: number | null
   user_id: number | null
 }
@@ -65,6 +69,7 @@ export type TodayActivityCountAggregateOutputType = {
   date: number
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
   user_id: number
   _all: number
@@ -75,6 +80,7 @@ export type TodayActivityAvgAggregateInputType = {
   id?: true
   steps?: true
   sleep_hours?: true
+  water_intake?: true
   calories?: true
   user_id?: true
 }
@@ -83,6 +89,7 @@ export type TodayActivitySumAggregateInputType = {
   id?: true
   steps?: true
   sleep_hours?: true
+  water_intake?: true
   calories?: true
   user_id?: true
 }
@@ -92,6 +99,7 @@ export type TodayActivityMinAggregateInputType = {
   date?: true
   steps?: true
   sleep_hours?: true
+  water_intake?: true
   calories?: true
   user_id?: true
 }
@@ -101,6 +109,7 @@ export type TodayActivityMaxAggregateInputType = {
   date?: true
   steps?: true
   sleep_hours?: true
+  water_intake?: true
   calories?: true
   user_id?: true
 }
@@ -110,6 +119,7 @@ export type TodayActivityCountAggregateInputType = {
   date?: true
   steps?: true
   sleep_hours?: true
+  water_intake?: true
   calories?: true
   user_id?: true
   _all?: true
@@ -206,6 +216,7 @@ export type TodayActivityGroupByOutputType = {
   date: Date
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
   user_id: number
   _count: TodayActivityCountAggregateOutputType | null
@@ -238,6 +249,7 @@ export type TodayActivityWhereInput = {
   date?: Prisma.DateTimeFilter<"TodayActivity"> | Date | string
   steps?: Prisma.IntFilter<"TodayActivity"> | number
   sleep_hours?: Prisma.FloatFilter<"TodayActivity"> | number
+  water_intake?: Prisma.FloatFilter<"TodayActivity"> | number
   calories?: Prisma.IntFilter<"TodayActivity"> | number
   user_id?: Prisma.IntFilter<"TodayActivity"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -248,6 +260,7 @@ export type TodayActivityOrderByWithRelationInput = {
   date?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -261,6 +274,7 @@ export type TodayActivityWhereUniqueInput = Prisma.AtLeast<{
   date?: Prisma.DateTimeFilter<"TodayActivity"> | Date | string
   steps?: Prisma.IntFilter<"TodayActivity"> | number
   sleep_hours?: Prisma.FloatFilter<"TodayActivity"> | number
+  water_intake?: Prisma.FloatFilter<"TodayActivity"> | number
   calories?: Prisma.IntFilter<"TodayActivity"> | number
   user_id?: Prisma.IntFilter<"TodayActivity"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -271,6 +285,7 @@ export type TodayActivityOrderByWithAggregationInput = {
   date?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   _count?: Prisma.TodayActivityCountOrderByAggregateInput
@@ -288,6 +303,7 @@ export type TodayActivityScalarWhereWithAggregatesInput = {
   date?: Prisma.DateTimeWithAggregatesFilter<"TodayActivity"> | Date | string
   steps?: Prisma.IntWithAggregatesFilter<"TodayActivity"> | number
   sleep_hours?: Prisma.FloatWithAggregatesFilter<"TodayActivity"> | number
+  water_intake?: Prisma.FloatWithAggregatesFilter<"TodayActivity"> | number
   calories?: Prisma.IntWithAggregatesFilter<"TodayActivity"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"TodayActivity"> | number
 }
@@ -296,6 +312,7 @@ export type TodayActivityCreateInput = {
   date: Date | string
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
   user: Prisma.UserCreateNestedOneWithoutTodayActivitiesInput
 }
@@ -305,6 +322,7 @@ export type TodayActivityUncheckedCreateInput = {
   date: Date | string
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
   user_id: number
 }
@@ -313,6 +331,7 @@ export type TodayActivityUpdateInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
   user?: Prisma.UserUpdateOneRequiredWithoutTodayActivitiesNestedInput
 }
@@ -322,6 +341,7 @@ export type TodayActivityUncheckedUpdateInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -331,6 +351,7 @@ export type TodayActivityCreateManyInput = {
   date: Date | string
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
   user_id: number
 }
@@ -339,6 +360,7 @@ export type TodayActivityUpdateManyMutationInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -347,6 +369,7 @@ export type TodayActivityUncheckedUpdateManyInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -366,6 +389,7 @@ export type TodayActivityCountOrderByAggregateInput = {
   date?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
 }
@@ -374,6 +398,7 @@ export type TodayActivityAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
 }
@@ -383,6 +408,7 @@ export type TodayActivityMaxOrderByAggregateInput = {
   date?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
 }
@@ -392,6 +418,7 @@ export type TodayActivityMinOrderByAggregateInput = {
   date?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
 }
@@ -400,6 +427,7 @@ export type TodayActivitySumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   steps?: Prisma.SortOrder
   sleep_hours?: Prisma.SortOrder
+  water_intake?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
 }
@@ -446,10 +474,6 @@ export type TodayActivityUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.TodayActivityScalarWhereInput | Prisma.TodayActivityScalarWhereInput[]
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
 export type FloatFieldUpdateOperationsInput = {
   set?: number
   increment?: number
@@ -462,6 +486,7 @@ export type TodayActivityCreateWithoutUserInput = {
   date: Date | string
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
 }
 
@@ -470,6 +495,7 @@ export type TodayActivityUncheckedCreateWithoutUserInput = {
   date: Date | string
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
 }
 
@@ -507,6 +533,7 @@ export type TodayActivityScalarWhereInput = {
   date?: Prisma.DateTimeFilter<"TodayActivity"> | Date | string
   steps?: Prisma.IntFilter<"TodayActivity"> | number
   sleep_hours?: Prisma.FloatFilter<"TodayActivity"> | number
+  water_intake?: Prisma.FloatFilter<"TodayActivity"> | number
   calories?: Prisma.IntFilter<"TodayActivity"> | number
   user_id?: Prisma.IntFilter<"TodayActivity"> | number
 }
@@ -516,6 +543,7 @@ export type TodayActivityCreateManyUserInput = {
   date: Date | string
   steps: number
   sleep_hours: number
+  water_intake: number
   calories: number
 }
 
@@ -523,6 +551,7 @@ export type TodayActivityUpdateWithoutUserInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -531,6 +560,7 @@ export type TodayActivityUncheckedUpdateWithoutUserInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -539,6 +569,7 @@ export type TodayActivityUncheckedUpdateManyWithoutUserInput = {
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   steps?: Prisma.IntFieldUpdateOperationsInput | number
   sleep_hours?: Prisma.FloatFieldUpdateOperationsInput | number
+  water_intake?: Prisma.FloatFieldUpdateOperationsInput | number
   calories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -549,6 +580,7 @@ export type TodayActivitySelect<ExtArgs extends runtime.Types.Extensions.Interna
   date?: boolean
   steps?: boolean
   sleep_hours?: boolean
+  water_intake?: boolean
   calories?: boolean
   user_id?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -559,6 +591,7 @@ export type TodayActivitySelectCreateManyAndReturn<ExtArgs extends runtime.Types
   date?: boolean
   steps?: boolean
   sleep_hours?: boolean
+  water_intake?: boolean
   calories?: boolean
   user_id?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -569,6 +602,7 @@ export type TodayActivitySelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   date?: boolean
   steps?: boolean
   sleep_hours?: boolean
+  water_intake?: boolean
   calories?: boolean
   user_id?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -579,11 +613,12 @@ export type TodayActivitySelectScalar = {
   date?: boolean
   steps?: boolean
   sleep_hours?: boolean
+  water_intake?: boolean
   calories?: boolean
   user_id?: boolean
 }
 
-export type TodayActivityOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "steps" | "sleep_hours" | "calories" | "user_id", ExtArgs["result"]["todayActivity"]>
+export type TodayActivityOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "steps" | "sleep_hours" | "water_intake" | "calories" | "user_id", ExtArgs["result"]["todayActivity"]>
 export type TodayActivityInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -604,6 +639,7 @@ export type $TodayActivityPayload<ExtArgs extends runtime.Types.Extensions.Inter
     date: Date
     steps: number
     sleep_hours: number
+    water_intake: number
     calories: number
     user_id: number
   }, ExtArgs["result"]["todayActivity"]>
@@ -1034,6 +1070,7 @@ export interface TodayActivityFieldRefs {
   readonly date: Prisma.FieldRef<"TodayActivity", 'DateTime'>
   readonly steps: Prisma.FieldRef<"TodayActivity", 'Int'>
   readonly sleep_hours: Prisma.FieldRef<"TodayActivity", 'Float'>
+  readonly water_intake: Prisma.FieldRef<"TodayActivity", 'Float'>
   readonly calories: Prisma.FieldRef<"TodayActivity", 'Int'>
   readonly user_id: Prisma.FieldRef<"TodayActivity", 'Int'>
 }

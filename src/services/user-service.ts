@@ -4,6 +4,7 @@ import { prismaClient } from "../utils/database-util"
 import { UserValidation } from "../validations/user-validation"
 import { Validation } from "../validations/validation"
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 export class UserService {
     static async register(request: RegisterUserRequest): Promise<UserResponse> {
@@ -22,10 +23,11 @@ export class UserService {
             throw new ResponseError(400, "Email has already existed!")
         }
 
-        const username = await prismaClient.user.findFirst({
-            where: {
-                username: validatedData.username,
+        const username = await prismaClient.user.findUnique({
+            where:{
+                username: validatedData.username
             },
+            
         })
 
         if (username) {
@@ -44,7 +46,13 @@ export class UserService {
             },
         })
 
-        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, 0, 0)
+        const token = jwt.sign(
+            { id: user.id, username: user.username },
+            process.env.JWT_SECRET!,
+            { expiresIn: "7d" }
+        )
+
+        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, 0, 0, true, token)
     }
 
     static async login(request: LoginUserRequest): Promise<UserResponse> {
@@ -69,6 +77,12 @@ export class UserService {
             throw new ResponseError(400, "Invalid email or password!")
         }
 
+        const token = jwt.sign(
+            { id: user.id, username: user.username },
+            process.env.JWT_SECRET!,
+            { expiresIn: "7d" }
+        )
+
         // Get highest score from weekly summaries
         const highestScore = await this.getHighestScore(user.id)
 
@@ -80,7 +94,7 @@ export class UserService {
             }
         })
 
-        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, highestScore, friendsCount)
+        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, highestScore, friendsCount, true, token)
     }
 
     static async getCurrentUser(userPayload: UserJWTPayload): Promise<UserResponse> {

@@ -163,7 +163,7 @@ export class WeeklySummaryService {
             ) / totalDays
         const avgWater =
             dailyActivities.reduce(
-                (sum, activity) => sum + activity.water_glasses,
+                (sum, activity) => sum + activity.water_intake,
                 0
             ) / totalDays
         const avgCalories =

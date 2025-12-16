@@ -77,7 +77,9 @@ export const UserScalarFieldEnum = {
   username: 'username',
   phone: 'phone',
   email: 'email',
-  password: 'password'
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -88,6 +90,7 @@ export const TodayActivityScalarFieldEnum = {
   date: 'date',
   steps: 'steps',
   sleep_hours: 'sleep_hours',
+  water_intake: 'water_intake',
   calories: 'calories',
   user_id: 'user_id'
 } as const

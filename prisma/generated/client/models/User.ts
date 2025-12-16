@@ -41,6 +41,8 @@ export type UserMinAggregateOutputType = {
   phone: string | null
   email: string | null
   password: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -50,6 +52,8 @@ export type UserMaxAggregateOutputType = {
   phone: string | null
   email: string | null
   password: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -59,6 +63,8 @@ export type UserCountAggregateOutputType = {
   phone: number
   email: number
   password: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -78,6 +84,8 @@ export type UserMinAggregateInputType = {
   phone?: true
   email?: true
   password?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -87,6 +95,8 @@ export type UserMaxAggregateInputType = {
   phone?: true
   email?: true
   password?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -96,6 +106,8 @@ export type UserCountAggregateInputType = {
   phone?: true
   email?: true
   password?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -192,6 +204,8 @@ export type UserGroupByOutputType = {
   phone: string
   email: string
   password: string
+  createdAt: Date
+  updatedAt: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -224,10 +238,12 @@ export type UserWhereInput = {
   phone?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  todayActivities?: Prisma.TodayActivityListRelationFilter
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   weeklySummaries?: Prisma.WeeklySummaryListRelationFilter
   friends?: Prisma.FriendsListRelationFilter
   friendOf?: Prisma.FriendsListRelationFilter
+  todayActivities?: Prisma.TodayActivityListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -237,10 +253,12 @@ export type UserOrderByWithRelationInput = {
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  todayActivities?: Prisma.TodayActivityOrderByRelationAggregateInput
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   weeklySummaries?: Prisma.WeeklySummaryOrderByRelationAggregateInput
   friends?: Prisma.FriendsOrderByRelationAggregateInput
   friendOf?: Prisma.FriendsOrderByRelationAggregateInput
+  todayActivities?: Prisma.TodayActivityOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -253,10 +271,12 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"User"> | string
   phone?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  todayActivities?: Prisma.TodayActivityListRelationFilter
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   weeklySummaries?: Prisma.WeeklySummaryListRelationFilter
   friends?: Prisma.FriendsListRelationFilter
   friendOf?: Prisma.FriendsListRelationFilter
+  todayActivities?: Prisma.TodayActivityListRelationFilter
 }, "id" | "username" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -266,6 +286,8 @@ export type UserOrderByWithAggregationInput = {
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -283,6 +305,8 @@ export type UserScalarWhereWithAggregatesInput = {
   phone?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
@@ -291,10 +315,12 @@ export type UserCreateInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
+  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -304,10 +330,12 @@ export type UserUncheckedCreateInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
+  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -316,10 +344,12 @@ export type UserUpdateInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
+  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -329,10 +359,12 @@ export type UserUncheckedUpdateInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
+  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -342,6 +374,8 @@ export type UserCreateManyInput = {
   phone: string
   email: string
   password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
@@ -350,6 +384,8 @@ export type UserUpdateManyMutationInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -359,6 +395,8 @@ export type UserUncheckedUpdateManyInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserCountOrderByAggregateInput = {
@@ -368,6 +406,8 @@ export type UserCountOrderByAggregateInput = {
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
@@ -381,6 +421,8 @@ export type UserMaxOrderByAggregateInput = {
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -390,6 +432,8 @@ export type UserMinOrderByAggregateInput = {
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
@@ -403,6 +447,10 @@ export type UserScalarRelationFilter = {
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -475,6 +523,8 @@ export type UserCreateWithoutTodayActivitiesInput = {
   phone: string
   email: string
   password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
@@ -487,6 +537,8 @@ export type UserUncheckedCreateWithoutTodayActivitiesInput = {
   phone: string
   email: string
   password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
@@ -514,6 +566,8 @@ export type UserUpdateWithoutTodayActivitiesInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
@@ -526,6 +580,8 @@ export type UserUncheckedUpdateWithoutTodayActivitiesInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
@@ -537,9 +593,11 @@ export type UserCreateWithoutWeeklySummariesInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
+  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutWeeklySummariesInput = {
@@ -549,9 +607,11 @@ export type UserUncheckedCreateWithoutWeeklySummariesInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
+  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutWeeklySummariesInput = {
@@ -576,9 +636,11 @@ export type UserUpdateWithoutWeeklySummariesInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
+  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWeeklySummariesInput = {
@@ -588,9 +650,11 @@ export type UserUncheckedUpdateWithoutWeeklySummariesInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
+  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutFriendsInput = {
@@ -599,9 +663,11 @@ export type UserCreateWithoutFriendsInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
+  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFriendsInput = {
@@ -611,9 +677,11 @@ export type UserUncheckedCreateWithoutFriendsInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
+  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFriendsInput = {
@@ -627,9 +695,11 @@ export type UserCreateWithoutFriendOfInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
+  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFriendOfInput = {
@@ -639,9 +709,11 @@ export type UserUncheckedCreateWithoutFriendOfInput = {
   phone: string
   email: string
   password: string
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
+  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFriendOfInput = {
@@ -666,9 +738,11 @@ export type UserUpdateWithoutFriendsInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
+  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFriendsInput = {
@@ -678,9 +752,11 @@ export type UserUncheckedUpdateWithoutFriendsInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
+  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutFriendOfInput = {
@@ -700,9 +776,11 @@ export type UserUpdateWithoutFriendOfInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
+  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFriendOfInput = {
@@ -712,9 +790,11 @@ export type UserUncheckedUpdateWithoutFriendOfInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
+  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -723,17 +803,17 @@ export type UserUncheckedUpdateWithoutFriendOfInput = {
  */
 
 export type UserCountOutputType = {
-  todayActivities: number
   weeklySummaries: number
   friends: number
   friendOf: number
+  todayActivities: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  todayActivities?: boolean | UserCountOutputTypeCountTodayActivitiesArgs
   weeklySummaries?: boolean | UserCountOutputTypeCountWeeklySummariesArgs
   friends?: boolean | UserCountOutputTypeCountFriendsArgs
   friendOf?: boolean | UserCountOutputTypeCountFriendOfArgs
+  todayActivities?: boolean | UserCountOutputTypeCountTodayActivitiesArgs
 }
 
 /**
@@ -744,13 +824,6 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
    * Select specific fields to fetch from the UserCountOutputType
    */
   select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountTodayActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.TodayActivityWhereInput
 }
 
 /**
@@ -774,6 +847,13 @@ export type UserCountOutputTypeCountFriendOfArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.FriendsWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTodayActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TodayActivityWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -782,10 +862,12 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   phone?: boolean
   email?: boolean
   password?: boolean
-  todayActivities?: boolean | Prisma.User$todayActivitiesArgs<ExtArgs>
+  createdAt?: boolean
+  updatedAt?: boolean
   weeklySummaries?: boolean | Prisma.User$weeklySummariesArgs<ExtArgs>
   friends?: boolean | Prisma.User$friendsArgs<ExtArgs>
   friendOf?: boolean | Prisma.User$friendOfArgs<ExtArgs>
+  todayActivities?: boolean | Prisma.User$todayActivitiesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -796,6 +878,8 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   phone?: boolean
   email?: boolean
   password?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -805,6 +889,8 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   phone?: boolean
   email?: boolean
   password?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -814,14 +900,16 @@ export type UserSelectScalar = {
   phone?: boolean
   email?: boolean
   password?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "username" | "phone" | "email" | "password", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "username" | "phone" | "email" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  todayActivities?: boolean | Prisma.User$todayActivitiesArgs<ExtArgs>
   weeklySummaries?: boolean | Prisma.User$weeklySummariesArgs<ExtArgs>
   friends?: boolean | Prisma.User$friendsArgs<ExtArgs>
   friendOf?: boolean | Prisma.User$friendOfArgs<ExtArgs>
+  todayActivities?: boolean | Prisma.User$todayActivitiesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -830,10 +918,10 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    todayActivities: Prisma.$TodayActivityPayload<ExtArgs>[]
     weeklySummaries: Prisma.$WeeklySummaryPayload<ExtArgs>[]
     friends: Prisma.$FriendsPayload<ExtArgs>[]
     friendOf: Prisma.$FriendsPayload<ExtArgs>[]
+    todayActivities: Prisma.$TodayActivityPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -842,6 +930,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     phone: string
     email: string
     password: string
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -1236,10 +1326,10 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  todayActivities<T extends Prisma.User$todayActivitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$todayActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TodayActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   weeklySummaries<T extends Prisma.User$weeklySummariesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$weeklySummariesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WeeklySummaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   friends<T extends Prisma.User$friendsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   friendOf<T extends Prisma.User$friendOfArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendOfArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  todayActivities<T extends Prisma.User$todayActivitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$todayActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TodayActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1275,6 +1365,8 @@ export interface UserFieldRefs {
   readonly phone: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly password: Prisma.FieldRef<"User", 'String'>
+  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 
@@ -1663,30 +1755,6 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.todayActivities
- */
-export type User$todayActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the TodayActivity
-   */
-  select?: Prisma.TodayActivitySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TodayActivity
-   */
-  omit?: Prisma.TodayActivityOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TodayActivityInclude<ExtArgs> | null
-  where?: Prisma.TodayActivityWhereInput
-  orderBy?: Prisma.TodayActivityOrderByWithRelationInput | Prisma.TodayActivityOrderByWithRelationInput[]
-  cursor?: Prisma.TodayActivityWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.TodayActivityScalarFieldEnum | Prisma.TodayActivityScalarFieldEnum[]
-}
-
-/**
  * User.weeklySummaries
  */
 export type User$weeklySummariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1756,6 +1824,30 @@ export type User$friendOfArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.FriendsScalarFieldEnum | Prisma.FriendsScalarFieldEnum[]
+}
+
+/**
+ * User.todayActivities
+ */
+export type User$todayActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TodayActivity
+   */
+  select?: Prisma.TodayActivitySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TodayActivity
+   */
+  omit?: Prisma.TodayActivityOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TodayActivityInclude<ExtArgs> | null
+  where?: Prisma.TodayActivityWhereInput
+  orderBy?: Prisma.TodayActivityOrderByWithRelationInput | Prisma.TodayActivityOrderByWithRelationInput[]
+  cursor?: Prisma.TodayActivityWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TodayActivityScalarFieldEnum | Prisma.TodayActivityScalarFieldEnum[]
 }
 
 /**
