@@ -1,9 +1,10 @@
 import { ResponseError } from "../error/response-error"
-import { LoginUserRequest, RegisterUserRequest, toUserResponse, UpdateUserRequest, UserJWTPayload, UserResponse } from "../models/user-model"
+import { LoginUserRequest, RegisterUserRequest, UpdateUserRequest, UserJWTPayload, UserResponse } from "../models/user-model"
 import { prismaClient } from "../utils/database-util"
 import { UserValidation } from "../validations/user-validation"
 import { Validation } from "../validations/validation"
 import bcrypt from "bcrypt"
+import { generateToken } from "../utils/token-util"
 
 export class UserService {
     static async register(request: RegisterUserRequest): Promise<UserResponse> {
@@ -44,7 +45,7 @@ export class UserService {
             },
         })
 
-        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, 0, 0)
+        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, 0, 0, true)
     }
 
     static async login(request: LoginUserRequest): Promise<UserResponse> {
@@ -80,7 +81,7 @@ export class UserService {
             }
         })
 
-        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, highestScore, friendsCount)
+        return toUserResponse(user.id, user.name, user.username, user.phone, user.email, highestScore, friendsCount, true)
     }
 
     static async getCurrentUser(userPayload: UserJWTPayload): Promise<UserResponse> {
@@ -181,5 +182,27 @@ export class UserService {
         )
 
         return Math.max(...scores)
+    }
+}
+
+export function toUserResponse(
+    id: number,
+    name: string,
+    username: string,
+    phone: string,
+    email: string,
+    highestScore: number,
+    friendsCount: number,
+    includeToken: boolean = true
+): UserResponse {
+    return {
+        id,
+        name,
+        username,
+        phone,
+        email,
+        highest_score: highestScore,
+        friends_count: friendsCount,
+        ...(includeToken && { token: generateToken({ id, email }) })
     }
 }
