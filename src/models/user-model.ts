@@ -31,9 +31,7 @@ export interface UserResponse {
 }
 
 export interface UpdateUserRequest {
-    name?: string
-    email?: string
-    password?: string
+    name: string
 }
 
 export function toUserResponse(

@@ -2,9 +2,11 @@ import { Request, Response, NextFunction } from "express"
 import {
     LoginUserRequest,
     RegisterUserRequest,
+    UpdateUserRequest,
     UserResponse,
 } from "../models/user-model"
 import { UserService } from "../services/user-service"
+import { UserRequest } from "../models/user-request-model"
 
 export class UserController {
     static async register(req: Request, res: Response, next: NextFunction) {
@@ -13,6 +15,7 @@ export class UserController {
             const response: UserResponse = await UserService.register(request)
 
             res.status(200).json({
+                success: true,
                 data: response,
             })
         } catch (error) {
@@ -26,6 +29,35 @@ export class UserController {
             const response: UserResponse = await UserService.login(request)
 
             res.status(200).json({
+                success: true,
+                data: response,
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async getCurrentUser(req: UserRequest, res: Response, next: NextFunction) {
+        try {
+            const response: UserResponse = await UserService.getCurrentUser(req.user!)
+
+            res.status(200).json({
+                success: true,
+                data: response,
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async updateUser(req: UserRequest, res: Response, next: NextFunction) {
+        try {
+            const request: UpdateUserRequest = req.body as UpdateUserRequest
+            const response: UserResponse = await UserService.updateUser(req.user!, request)
+
+            res.status(200).json({
+                success: true,
+                message: "User updated successfully",
                 data: response,
             })
         } catch (error) {

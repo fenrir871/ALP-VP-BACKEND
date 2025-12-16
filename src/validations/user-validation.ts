@@ -67,4 +67,14 @@ export class UserValidation {
                 message: "Password must contain more than or equal to 8 characters!",
             }),
     })
+
+    static readonly UPDATE: ZodType = z.object({
+        name: z
+            .string({
+                message: "Name must be string!",
+            })
+            .min(1, {
+                message: "Name can not be empty!",
+            }),
+    })
 }
