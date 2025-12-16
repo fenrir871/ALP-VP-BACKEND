@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(100)
+  username String @unique @db.VarChar(50)
+  phone    String @db.VarChar(20)
+  email    String @unique @db.VarChar(150)
+  password String @db.VarChar(100)
+
+  todayActivities TodayActivity[]
+  weeklySummaries WeeklySummary[]
+
+  friends  Friends[] @relation("UserFriends")
+  friendOf Friends[] @relation("FriendOf")
+
+  @@map("users")
+}
+
+model TodayActivity {
+  id            Int      @id @default(autoincrement())
+  date          DateTime
+  steps         Int
+  sleep_hours   Float
+  calories      Int
+  water_glasses Int      @default(0)
+
+  user_id Int
+  user    User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("today_activity")
+}
+
+model WeeklySummary {
+  id Int @id @default(autoincrement())
+
+  week_start_date DateTime
+
+  avg_steps    Float
+  avg_sleep    Float
+  avg_water    Float
+  avg_calories Float
+
+  score_steps    Int
+  score_sleep    Int
+  score_water    Int
+  score_calories Int
+
+  user_id Int
+  user    User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("weekly_summary")
+}
+
+model Friends {
+  id Int @id @default(autoincrement())
+
+  user_id   Int
+  friend_id Int
+  status    String @db.VarChar(20)
+
+  user   User @relation("UserFriends", fields: [user_id], references: [id], onDelete: Cascade)
+  friend User @relation("FriendOf", fields: [friend_id], references: [id], onDelete: Cascade)
+
+  @@map("friends")
+}

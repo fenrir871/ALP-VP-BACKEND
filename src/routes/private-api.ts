@@ -2,6 +2,7 @@ import express from "express"
 import { authMiddleware } from "../middlewares/auth-middleware"
 import { DailyActivityController } from "../controllers/dailyactivity-controller"
 import { WeeklySummaryController } from "../controllers/WeeklySummary-controller"
+import { FriendController } from "../controllers/friend-controller"
 
 export const privateRouter = express.Router()
 
@@ -23,3 +24,9 @@ privateRouter.get("/weekly-summaries/date/:date", WeeklySummaryController.getWee
 privateRouter.post("/weekly-summaries/generate", WeeklySummaryController.generateWeeklySummary)
 privateRouter.post("/weekly-summaries", WeeklySummaryController.createWeeklySummary)
 privateRouter.delete("/weekly-summaries/:weeklyId", WeeklySummaryController.deleteWeeklySummary)
+
+// Friend Routes
+privateRouter.post("/friends/add", FriendController.addFriend)
+privateRouter.get("/friends/pending", FriendController.getPendingRequests)
+privateRouter.post("/friends/accept", FriendController.acceptFriendRequest)
+privateRouter.get("/friends/leaderboard", FriendController.getFriendLeaderboard)

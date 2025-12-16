@@ -4,7 +4,7 @@ import { prismaClient } from "../utils/database-util"
 import { UserValidation } from "../validations/user-validation"
 import { Validation } from "../validations/validation"
 import bcrypt from "bcrypt"
-import { generateToken } from "../utils/token-util"
+import { generateToken } from "../utils/jwt-util"
 
 export class UserService {
     static async register(request: RegisterUserRequest): Promise<UserResponse> {
