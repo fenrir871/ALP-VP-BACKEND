@@ -1,4 +1,4 @@
-import { prismaClient as prisma } from '../utils/database-util';
+import { prismaClient} from '../utils/database-util';
 import { FriendResponse, FriendWithUserInfo, FriendLeaderboardItem } from '../models/friend-model'
 import { ResponseError } from '../error/response-error'
 
@@ -10,7 +10,7 @@ export class FriendService {
     }
 
     // Check if friend user exists
-    const friendUser = await prisma.user.findUnique({
+    const friendUser = await prismaClient.user.findUnique({
       where: { id: friendId }
     })
 
@@ -19,7 +19,7 @@ export class FriendService {
     }
 
     // Check if friend request already exists (in either direction)
-    const existingFriendship = await prisma.friends.findFirst({
+    const existingFriendship = await prismaClient.friends.findFirst({
       where: {
         OR: [
           { user_id: userId, friend_id: friendId },
@@ -37,7 +37,7 @@ export class FriendService {
     }
 
     // Create friend request
-    const friendRequest = await prisma.friends.create({
+    const friendRequest = await prismaClient.friends.create({
       data: {
         user_id: userId,
         friend_id: friendId,
@@ -54,7 +54,7 @@ export class FriendService {
   }
 
   static async getPendingFriendRequests(userId: number): Promise<FriendWithUserInfo[]> {
-    const pendingRequests = await prisma.friends.findMany({
+    const pendingRequests = await prismaClient.friends.findMany({
       where: {
         friend_id: userId,
         status: 'pending'
@@ -80,7 +80,7 @@ export class FriendService {
 
   static async acceptFriendRequest(userId: number, friendRequestId: number): Promise<FriendResponse> {
     // Find the friend request
-    const friendRequest = await prisma.friends.findUnique({
+    const friendRequest = await prismaClient.friends.findUnique({
       where: { id: friendRequestId }
     })
 
@@ -99,7 +99,7 @@ export class FriendService {
     }
 
     // Update status to accepted
-    const updatedRequest = await prisma.friends.update({
+    const updatedRequest = await prismaClient.friends.update({
       where: { id: friendRequestId },
       data: { status: 'accepted' }
     })
@@ -113,77 +113,65 @@ export class FriendService {
   }
 
   static async getFriendLeaderboard(userId: number): Promise<FriendLeaderboardItem[]> {
-    // Get all accepted friends
-    const acceptedFriends = await prisma.friends.findMany({
-      where: {
-        OR: [
-          { user_id: userId, status: 'accepted' },
-          { friend_id: userId, status: 'accepted' }
-        ]
-      },
-      include: {
-        user: {
-          select: {
-            id: true,
-            name: true
-          }
-        },
-        friend: {
-          select: {
-            id: true,
-            name: true
-          }
-        }
-      }
-    })
-
-    // Get friend IDs
-    const friendIds = acceptedFriends.map((f: any) => 
-      f.user_id === userId ? f.friend_id : f.user_id
-    )
-
-    if (friendIds.length === 0) {
-      return []
+  const acceptedFriends = await prismaClient.friends.findMany({
+    where: {
+      status: 'accepted',
+      OR: [
+        { user_id: userId },
+        { friend_id: userId }
+      ]
+    },
+    include: {
+      user: { select: { id: true, name: true, username: true } },
+      friend: { select: { id: true, name: true, username: true } }
     }
+  })
 
-    // Get latest weekly summary for each friend
-    const friendsWithScores = await prisma.weeklySummary.findMany({
-      where: {
-        user_id: {
-          in: friendIds
-        }
-      },
-      distinct: ['user_id'],
-      orderBy: {
-        week_start_date: 'desc'
-      },
-      include: {
-        user: {
-          select: {
-            id: true,
-            name: true
-          }
-        }
-      }
-    })
+  if (acceptedFriends.length === 0) return []
 
-    // Calculate overall score and sort by score
-    const leaderboard: FriendLeaderboardItem[] = friendsWithScores
-      .map((summary: any) => ({
-        friend_id: summary.user_id,
-        name: summary.user.name,
-        username: summary.user.username,
-        overall_score: Math.round(
-          (summary.score_steps + summary.score_sleep + summary.score_water + summary.score_calories) / 4
-        ),
-        rank: 0
-      }))
-      .sort((a: FriendLeaderboardItem, b: FriendLeaderboardItem) => b.overall_score - a.overall_score)
-      .map((friend: FriendLeaderboardItem, index: number) => ({
-        ...friend,
-        rank: index + 1
-      }))
+  const friendUsers = acceptedFriends.map(f =>
+    f.user_id === userId ? f.friend : f.user
+  )
 
-    return leaderboard
+  const summaries = await prismaClient.weeklySummary.findMany({
+    where: {
+      user_id: { in: friendUsers.map(u => u.id) }
+    },
+    orderBy: { week_start_date: 'desc' }
+  })
+
+  const summaryMap = new Map<number, any>()
+  for (const s of summaries) {
+    if (!summaryMap.has(s.user_id)) {
+      summaryMap.set(s.user_id, s)
+    }
   }
+
+  const leaderboard = friendUsers.map(user => {
+    const summary = summaryMap.get(user.id)
+    const score = summary
+      ? Math.round(
+          (summary.score_steps +
+            summary.score_sleep +
+            summary.score_water +
+            summary.score_calories) / 4
+        )
+      : 0
+
+    return {
+      friend_id: user.id,
+      name: user.name,
+      username: user.username,
+      overall_score: score,
+      rank: 0
+    }
+  })
+
+  leaderboard.sort((a, b) => b.overall_score - a.overall_score)
+
+  return leaderboard.map((f, i) => ({
+    ...f,
+    rank: i + 1
+  }))
+}
 }
