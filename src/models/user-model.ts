@@ -14,6 +14,7 @@ export interface UserResponse {
 export interface UserJWTPayload {
     id: number
     username: string
+    email: string
 }
 
 export interface RegisterUserRequest {

@@ -1,10 +1,11 @@
 import { ResponseError } from "../error/response-error"
 import { LoginUserRequest, RegisterUserRequest, UpdateUserRequest, UserJWTPayload, UserResponse } from "../models/user-model"
 import { prismaClient } from "../utils/database-util"
+import { generateToken } from "../utils/jwt-util"
 import { UserValidation } from "../validations/user-validation"
 import { Validation } from "../validations/validation"
 import bcrypt from "bcrypt"
-import { generateToken } from "../utils/token-util"
+
 
 export class UserService {
     static async register(request: RegisterUserRequest): Promise<UserResponse> {
@@ -23,11 +24,10 @@ export class UserService {
             throw new ResponseError(400, "Email has already existed!")
         }
 
-        const username = await prismaClient.user.findUnique({
+        const username = await prismaClient.user.findFirst({
             where:{
                 username: validatedData.username
             },
-            
         })
 
         if (username) {
@@ -70,12 +70,6 @@ export class UserService {
         if (!passwordIsValid) {
             throw new ResponseError(400, "Invalid email or password!")
         }
-
-        const token = jwt.sign(
-            { id: user.id, username: user.username },
-            process.env.JWT_SECRET!,
-            { expiresIn: "7d" }
-        )
 
         // Get highest score from weekly summaries
         const highestScore = await this.getHighestScore(user.id)
@@ -208,8 +202,8 @@ export function toUserResponse(
         username,
         phone,
         email,
-        highest_score: highestScore,
-        friends_count: friendsCount,
-        ...(includeToken && { token: generateToken({ id, email }) })
+        highestScore: highestScore,
+        friendsCount: friendsCount,
+        ...(includeToken && { token: generateToken({ username, id, email }) })
     }
 }

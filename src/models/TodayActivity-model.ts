@@ -13,6 +13,7 @@ export interface CreateTodayActivityRequest {
     sleep_hours: number
     calories: number
     user_id: number
+    water_intake?: number
 }
 
 export interface UpdateTodayActivityRequest {
@@ -20,6 +21,7 @@ export interface UpdateTodayActivityRequest {
     steps?: number
     sleep_hours?: number
     calories?: number
+    water_intake?: number
 }
 
 export interface TodayActivityResponse {

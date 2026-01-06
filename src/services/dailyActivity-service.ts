@@ -125,10 +125,10 @@ export class DailyActivityService {
                 steps: validatedData.steps,
                 sleep_hours: validatedData.sleep_hours,
                 calories: validatedData.calories,
+                water_intake: validatedData.water_intake ?? 0,
                 user_id: user.id,
             },
         })
-
         return "Activity data has been created successfully!"
     }
 
@@ -145,7 +145,6 @@ export class DailyActivityService {
         await this.checkActivityExists(user.id, activityId)
 
         const updateData: any = {}
-
         if (validatedData.date !== undefined) {
             updateData.date = new Date(validatedData.date)
         }
@@ -158,7 +157,9 @@ export class DailyActivityService {
         if (validatedData.calories !== undefined) {
             updateData.calories = validatedData.calories
         }
-
+        if (validatedData.water_intake !== undefined) {
+            updateData.water_intake = validatedData.water_intake
+        }
         await prismaClient.todayActivity.update({
             where: {
                 id: activityId,
@@ -166,7 +167,6 @@ export class DailyActivityService {
             },
             data: updateData,
         })
-
         return "Activity data has been updated successfully!"
     }
 
