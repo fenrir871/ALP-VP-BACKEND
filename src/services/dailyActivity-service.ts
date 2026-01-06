@@ -1,11 +1,11 @@
-import { TodayActivity } from "../../generated/prisma/client"
+import { DailyActivity } from "../../generated/prisma/client"
 import { ResponseError } from "../error/response-error"
 import {
-    CreateTodayActivityRequest,
-    TodayActivityResponse,
-    toTodayActivityResponse,
-    UpdateTodayActivityRequest,
-} from "../models/TodayActivity-model"
+    CreateDailyActivityRequest,
+    DailyActivityResponse,
+    toDailyActivityResponse,
+    UpdateDailyActivityRequest,
+} from "../models/DailyActivity-model"
 import { UserJWTPayload } from "../models/user-model"
 import { prismaClient } from "../utils/database-util"
 import { DailyActivityValidation } from "../validations/dailyactivity-validations"
@@ -14,10 +14,10 @@ import { Validation } from "../validations/validation"
 export class DailyActivityService {
     static async getAllActivities(
         user: UserJWTPayload
-    ): Promise<TodayActivityResponse[]> {
-        const activities = await prismaClient.todayActivity.findMany({
+    ): Promise<DailyActivityResponse[]> {
+        const activities = await prismaClient.dailyActivity.findMany({
             where: {
-                user_id: user.id,
+                userId: user.id,
             },
             orderBy: {
                 date: "desc",
@@ -25,13 +25,13 @@ export class DailyActivityService {
         })
 
         return activities.map((activity) =>
-            toTodayActivityResponse(
+            toDailyActivityResponse(
                 activity.id,
                 activity.date,
                 activity.steps,
-                activity.sleep_hours,
+                activity.sleepHours,
                 activity.calories,
-                activity.user_id
+                activity.userId
             )
         )
     }
@@ -39,26 +39,26 @@ export class DailyActivityService {
     static async getActivity(
         user: UserJWTPayload,
         activityId: number
-    ): Promise<TodayActivityResponse> {
+    ): Promise<DailyActivityResponse> {
         const activity = await this.checkActivityExists(user.id, activityId)
 
-        return toTodayActivityResponse(
+        return toDailyActivityResponse(
             activity.id,
             activity.date,
             activity.steps,
-            activity.sleep_hours,
+            activity.sleepHours,
             activity.calories,
-            activity.user_id
+            activity.userId
         )
     }
 
     static async getActivityByDate(
         user: UserJWTPayload,
         date: Date | string
-    ): Promise<TodayActivityResponse | null> {
-        const activity = await prismaClient.todayActivity.findFirst({
+    ): Promise<DailyActivityResponse | null> {
+        const activity = await prismaClient.dailyActivity.findFirst({
             where: {
-                user_id: user.id,
+                userId: user.id,
                 date: new Date(date),
             },
         })
@@ -67,23 +67,23 @@ export class DailyActivityService {
             return null
         }
 
-        return toTodayActivityResponse(
+        return toDailyActivityResponse(
             activity.id,
             activity.date,
             activity.steps,
-            activity.sleep_hours,
+            activity.sleepHours,
             activity.calories,
-            activity.user_id
+            activity.userId
         )
     }
 
     static async checkActivityExists(
         userId: number,
         activityId: number
-    ): Promise<TodayActivity> {
-        const activity = await prismaClient.todayActivity.findFirst({
+    ): Promise<DailyActivity> {
+        const activity = await prismaClient.dailyActivity.findFirst({
             where: {
-                user_id: userId,
+                userId: userId,
                 id: activityId,
             },
         })
@@ -97,7 +97,7 @@ export class DailyActivityService {
 
     static async createActivity(
         user: UserJWTPayload,
-        reqData: CreateTodayActivityRequest
+        reqData: CreateDailyActivityRequest
     ): Promise<string> {
         const validatedData = Validation.validate(
             DailyActivityValidation.CREATE,
@@ -105,9 +105,9 @@ export class DailyActivityService {
         )
 
         // Check if activity already exists for this date
-        const existingActivity = await prismaClient.todayActivity.findFirst({
+        const existingActivity = await prismaClient.dailyActivity.findFirst({
             where: {
-                user_id: user.id,
+                userId: user.id,
                 date: new Date(validatedData.date),
             },
         })
@@ -119,14 +119,14 @@ export class DailyActivityService {
             )
         }
 
-        await prismaClient.todayActivity.create({
+        await prismaClient.dailyActivity.create({
             data: {
                 date: new Date(validatedData.date),
                 steps: validatedData.steps,
-                sleep_hours: validatedData.sleep_hours,
+                sleepHours: validatedData.sleepHours,
                 calories: validatedData.calories,
-                water_intake: validatedData.water_intake ?? 0,
-                user_id: user.id,
+                waterIntake: validatedData.waterIntake ?? 0,
+                userId: user.id,
             },
         })
         return "Activity data has been created successfully!"
@@ -134,7 +134,7 @@ export class DailyActivityService {
 
     static async updateActivity(
         user: UserJWTPayload,
-        reqData: UpdateTodayActivityRequest,
+        reqData: UpdateDailyActivityRequest,
         activityId: number
     ): Promise<string> {
         const validatedData = Validation.validate(
@@ -151,19 +151,19 @@ export class DailyActivityService {
         if (validatedData.steps !== undefined) {
             updateData.steps = validatedData.steps
         }
-        if (validatedData.sleep_hours !== undefined) {
-            updateData.sleep_hours = validatedData.sleep_hours
+        if (validatedData.sleepHours !== undefined) {
+            updateData.sleepHours = validatedData.sleepHours
         }
         if (validatedData.calories !== undefined) {
             updateData.calories = validatedData.calories
         }
-        if (validatedData.water_intake !== undefined) {
-            updateData.water_intake = validatedData.water_intake
+        if (validatedData.waterIntake !== undefined) {
+            updateData.waterIntake = validatedData.waterIntake
         }
-        await prismaClient.todayActivity.update({
+        await prismaClient.dailyActivity.update({
             where: {
                 id: activityId,
-                user_id: user.id,
+                userId: user.id,
             },
             data: updateData,
         })
@@ -176,10 +176,10 @@ export class DailyActivityService {
     ): Promise<string> {
         await this.checkActivityExists(user.id, activityId)
 
-        await prismaClient.todayActivity.delete({
+        await prismaClient.dailyActivity.delete({
             where: {
                 id: activityId,
-                user_id: user.id,
+                userId: user.id,
             },
         })
 
@@ -190,10 +190,10 @@ export class DailyActivityService {
         user: UserJWTPayload,
         startDate: Date | string,
         endDate: Date | string
-    ): Promise<TodayActivityResponse[]> {
-        const activities = await prismaClient.todayActivity.findMany({
+    ): Promise<DailyActivityResponse[]> {
+        const activities = await prismaClient.dailyActivity.findMany({
             where: {
-                user_id: user.id,
+                userId: user.id,
                 date: {
                     gte: new Date(startDate),
                     lte: new Date(endDate),
@@ -205,13 +205,13 @@ export class DailyActivityService {
         })
 
         return activities.map((activity) =>
-            toTodayActivityResponse(
+            toDailyActivityResponse(
                 activity.id,
                 activity.date,
                 activity.steps,
-                activity.sleep_hours,
+                activity.sleepHours,
                 activity.calories,
-                activity.user_id
+                activity.userId
             )
         )
     }

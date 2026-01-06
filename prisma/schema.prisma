@@ -27,21 +27,21 @@ model User{
   weeklySummaries WeeklySummary[]
   friends         Friends[]       @relation("UserFriends")
   friendOf        Friends[]       @relation("FriendOf")
-  todayActivities TodayActivity[]       @relation("TodayActivities")
+  dailyActivities DailyActivity[]       @relation("DailyActivities")
 
   @@map("users")
 }
 
-model TodayActivity{
+model DailyActivity{
   id          Int      @id @default(autoincrement())
   date        DateTime
   steps       Int
-  sleep_hours Float
-  water_intake Float
+  sleepHours  Float    @map("sleep_hours")
+  waterIntake Float    @map("water_intake")
   calories    Int
 
-  user_id      Int
-  user        User     @relation("TodayActivities", fields: [user_id], references: [id], onDelete: Cascade)
+  userId      Int      @map("user_id")
+  user        User     @relation("DailyActivities", fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("today_activity")
 }
@@ -49,20 +49,20 @@ model TodayActivity{
 model WeeklySummary{
   id             Int      @id @default(autoincrement())
 
-  week_start_date DateTime
+  weekStartDate  DateTime @map("week_start_date")
 
-  avg_steps      Float
-  avg_sleep      Float
-  avg_water      Float
-  avg_calories   Float
+  avgSteps       Float    @map("avg_steps")
+  avgSleep       Float    @map("avg_sleep")
+  avgWater       Float    @map("avg_water")
+  avgCalories    Float    @map("avg_calories")
 
-  score_steps    Int
-  score_sleep    Int
-  score_water    Int
-  score_calories Int
+  scoreSteps     Int      @map("score_steps")
+  scoreSleep     Int      @map("score_sleep")
+  scoreWater     Int      @map("score_water")
+  scoreCalories  Int      @map("score_calories")
 
-  user_id      Int
-  user        User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  userId         Int      @map("user_id")
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("weekly_summary")
 }
@@ -70,12 +70,12 @@ model WeeklySummary{
 model Friends{
   id        Int   @id @default(autoincrement())
 
-  user_id   Int
-  friend_id Int
+  userId    Int   @map("user_id")
+  friendId  Int   @map("friend_id")
   status    String  @db.VarChar(20)
 
-  user      User  @relation("UserFriends", fields: [user_id], references: [id], onDelete: Cascade)
-  friend    User  @relation("FriendOf", fields: [friend_id], references: [id], onDelete: Cascade)
+  user      User  @relation("UserFriends", fields: [userId], references: [id], onDelete: Cascade)
+  friend    User  @relation("FriendOf", fields: [friendId], references: [id], onDelete: Cascade)
 
   @@map("friends")
 }

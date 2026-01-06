@@ -1,13 +1,12 @@
-import { z, ZodType } from "zod"
-
+﻿import { z, ZodType } from "zod"
 export class UserValidation {
     static readonly REGISTER: ZodType = z.object({
-        name: z
+        fullName: z
             .string({
-                message: "Name must be string!",
+                message: "Full name must be string!",
             })
             .min(1, {
-                message: "Name can not be empty!",
+                message: "Full name can not be empty!",
             }),
         username: z
             .string({
@@ -47,7 +46,6 @@ export class UserValidation {
                 message: "Password must contain more than or equal to 8 characters!",
             }),
     })
-
     static readonly LOGIN: ZodType = z.object({
         email: z
             .string({
@@ -67,14 +65,13 @@ export class UserValidation {
                 message: "Password must contain more than or equal to 8 characters!",
             }),
     })
-
     static readonly UPDATE: ZodType = z.object({
-        name: z
+        fullName: z
             .string({
-                message: "Name must be string!",
+                message: "Full name must be string!",
             })
             .min(1, {
-                message: "Name can not be empty!",
+                message: "Full name can not be empty!",
             }),
     })
 }

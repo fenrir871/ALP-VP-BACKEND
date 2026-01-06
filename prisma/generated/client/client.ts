@@ -48,10 +48,10 @@ path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node"
  */
 export type User = Prisma.UserModel
 /**
- * Model TodayActivity
+ * Model DailyActivity
  * 
  */
-export type TodayActivity = Prisma.TodayActivityModel
+export type DailyActivity = Prisma.DailyActivityModel
 /**
  * Model WeeklySummary
  * 

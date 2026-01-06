@@ -9,14 +9,14 @@ export class DailyActivityValidation {
       .number({ error: "Steps must be a number!" })
       .int({ error: "Steps must be an integer!" })
       .nonnegative({ error: "Steps cannot be negative!" }),
-    sleep_hours: z
+    sleepHours: z
       .number({ error: "Sleep hours must be a number!" })
       .nonnegative({ error: "Sleep hours cannot be negative!" }),
     calories: z
       .number({ error: "Calories must be a number!" })
       .int({ error: "Calories must be an integer!" })
       .nonnegative({ error: "Calories cannot be negative!" }),
-    user_id: z
+    userId: z
       .number({ error: "User ID must be a number!" })
       .int({ error: "User ID must be an integer!" })
       .positive({ error: "User ID must be a positive integer!" }),
@@ -32,7 +32,7 @@ export class DailyActivityValidation {
       .int({ error: "Steps must be an integer!" })
       .nonnegative({ error: "Steps cannot be negative!" })
       .optional(),
-    sleep_hours: z
+    sleepHours: z
       .number({ error: "Sleep hours must be a number!" })
       .nonnegative({ error: "Sleep hours cannot be negative!" })
       .optional(),

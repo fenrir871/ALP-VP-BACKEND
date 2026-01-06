@@ -1,40 +1,40 @@
 import { WeeklySummary } from "../../generated/prisma/client"
 
 export interface WeeklySummaryResponse {
-    weekly_id: number
-    user_id: number
-    week_start_date: Date
-    avg_steps: number
-    avg_sleep: number
-    avg_water: number
-    avg_calories: number
-    score_steps: number
-    score_sleep: number
-    score_water: number
-    score_calories: number
-    overall_score?: number
+    weeklyId: number
+    userId: number
+    weekStartDate: Date
+    avgSteps: number
+    avgSleep: number
+    avgWater: number
+    avgCalories: number
+    scoreSteps: number
+    scoreSleep: number
+    scoreWater: number
+    scoreCalories: number
+    overallScore?: number
 }
 
 export interface WeeklySummaryCreateRequest {
-    user_id: number
-    week_start_date: Date
-    avg_steps: number
-    avg_sleep: number
-    avg_water: number
-    avg_calories: number
+    userId: number
+    weekStartDate: Date
+    avgSteps: number
+    avgSleep: number
+    avgWater: number
+    avgCalories: number
 }
 
 export interface WeeklySummaryAnalytics {
-    week_start_date: Date
+    weekStartDate: Date
     metrics: {
         steps: MetricAnalysis
         sleep: MetricAnalysis
         water: MetricAnalysis
         calories: MetricAnalysis
     }
-    overall_score: number
+    overallScore: number
     grade: string
-    improvement_suggestions: string[]
+    improvementSuggestions: string[]
 }
 
 export interface MetricAnalysis {
@@ -46,26 +46,26 @@ export interface MetricAnalysis {
 }
 
 export function toWeeklySummaryResponse(prismaWeeklySummary: WeeklySummary): WeeklySummaryResponse {
-    const overall_score = calculateOverallScore(
-        prismaWeeklySummary.score_steps,
-        prismaWeeklySummary.score_sleep,
-        prismaWeeklySummary.score_water,
-        prismaWeeklySummary.score_calories
+    const overallScore = calculateOverallScore(
+        prismaWeeklySummary.scoreSteps,
+        prismaWeeklySummary.scoreSleep,
+        prismaWeeklySummary.scoreWater,
+        prismaWeeklySummary.scoreCalories
     )
 
     return {
-        weekly_id: prismaWeeklySummary.id,
-        user_id: prismaWeeklySummary.user_id,
-        week_start_date: prismaWeeklySummary.week_start_date,
-        avg_steps: prismaWeeklySummary.avg_steps,
-        avg_sleep: prismaWeeklySummary.avg_sleep,
-        avg_water: prismaWeeklySummary.avg_water,
-        avg_calories: prismaWeeklySummary.avg_calories,
-        score_steps: prismaWeeklySummary.score_steps,
-        score_sleep: prismaWeeklySummary.score_sleep,
-        score_water: prismaWeeklySummary.score_water,
-        score_calories: prismaWeeklySummary.score_calories,
-        overall_score
+        weeklyId: prismaWeeklySummary.id,
+        userId: prismaWeeklySummary.userId,
+        weekStartDate: prismaWeeklySummary.weekStartDate,
+        avgSteps: prismaWeeklySummary.avgSteps,
+        avgSleep: prismaWeeklySummary.avgSleep,
+        avgWater: prismaWeeklySummary.avgWater,
+        avgCalories: prismaWeeklySummary.avgCalories,
+        scoreSteps: prismaWeeklySummary.scoreSteps,
+        scoreSleep: prismaWeeklySummary.scoreSleep,
+        scoreWater: prismaWeeklySummary.scoreWater,
+        scoreCalories: prismaWeeklySummary.scoreCalories,
+        overallScore
     }
 }
 
@@ -74,20 +74,20 @@ export function toWeeklySummaryResponseList(prismaWeeklySummary: WeeklySummary[]
 }
 
 export function toWeeklySummaryAnalytics(prismaWeeklySummary: WeeklySummary): WeeklySummaryAnalytics {
-    const stepsAnalysis = analyzeMetric(prismaWeeklySummary.avg_steps, prismaWeeklySummary.score_steps, 10000, "steps")
-    const sleepAnalysis = analyzeMetric(prismaWeeklySummary.avg_sleep, prismaWeeklySummary.score_sleep, 8, "hours")
-    const waterAnalysis = analyzeMetric(prismaWeeklySummary.avg_water, prismaWeeklySummary.score_water, 8, "glasses")
-    const caloriesAnalysis = analyzeMetric(prismaWeeklySummary.avg_calories, prismaWeeklySummary.score_calories, 2000, "calories")
+    const stepsAnalysis = analyzeMetric(prismaWeeklySummary.avgSteps, prismaWeeklySummary.scoreSteps, 10000, "steps")
+    const sleepAnalysis = analyzeMetric(prismaWeeklySummary.avgSleep, prismaWeeklySummary.scoreSleep, 8, "hours")
+    const waterAnalysis = analyzeMetric(prismaWeeklySummary.avgWater, prismaWeeklySummary.scoreWater, 8, "glasses")
+    const caloriesAnalysis = analyzeMetric(prismaWeeklySummary.avgCalories, prismaWeeklySummary.scoreCalories, 2000, "calories")
 
-    const overall_score = calculateOverallScore(
-        prismaWeeklySummary.score_steps,
-        prismaWeeklySummary.score_sleep,
-        prismaWeeklySummary.score_water,
-        prismaWeeklySummary.score_calories
+    const overallScore = calculateOverallScore(
+        prismaWeeklySummary.scoreSteps,
+        prismaWeeklySummary.scoreSleep,
+        prismaWeeklySummary.scoreWater,
+        prismaWeeklySummary.scoreCalories
     )
 
-    const grade = getGrade(overall_score)
-    const improvement_suggestions = getImprovementSuggestions(
+    const grade = getGrade(overallScore)
+    const improvementSuggestions = getImprovementSuggestions(
         stepsAnalysis,
         sleepAnalysis,
         waterAnalysis,
@@ -95,16 +95,16 @@ export function toWeeklySummaryAnalytics(prismaWeeklySummary: WeeklySummary): We
     )
 
     return {
-        week_start_date: prismaWeeklySummary.week_start_date,
+        weekStartDate: prismaWeeklySummary.weekStartDate,
         metrics: {
             steps: stepsAnalysis,
             sleep: sleepAnalysis,
             water: waterAnalysis,
             calories: caloriesAnalysis
         },
-        overall_score,
+        overallScore,
         grade,
-        improvement_suggestions
+        improvementSuggestions
     }
 }
 
@@ -185,16 +185,16 @@ export function calculateScores(
     avgWater: number,
     avgCalories: number
 ): {
-    score_steps: number
-    score_sleep: number
-    score_water: number
-    score_calories: number
+    scoreSteps: number
+    scoreSleep: number
+    scoreWater: number
+    scoreCalories: number
 } {
     return {
-        score_steps: calculateStepsScore(avgSteps),
-        score_sleep: calculateSleepScore(avgSleep),
-        score_water: calculateWaterScore(avgWater),
-        score_calories: calculateCaloriesScore(avgCalories)
+        scoreSteps: calculateStepsScore(avgSteps),
+        scoreSleep: calculateSleepScore(avgSleep),
+        scoreWater: calculateWaterScore(avgWater),
+        scoreCalories: calculateCaloriesScore(avgCalories)
     }
 }
 

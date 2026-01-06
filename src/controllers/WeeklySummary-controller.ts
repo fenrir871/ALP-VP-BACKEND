@@ -110,7 +110,7 @@ export class WeeklySummaryController {
         next: NextFunction
     ) {
         try {
-            const weekStartDate = req.body.week_start_date as string
+            const weekStartDate = req.body.weekStartDate as string
 
             const response = await WeeklySummaryService.generateWeeklySummary(
                 req.user!,

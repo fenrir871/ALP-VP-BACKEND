@@ -2,7 +2,7 @@ import z, { ZodType } from "zod"
 
 export class WeeklySummaryValidation {
     static readonly CREATE: ZodType = z.object({
-        user_id: z
+        userId: z
             .number({
                 message: "User ID must be a number!",
             })
@@ -12,7 +12,7 @@ export class WeeklySummaryValidation {
             .positive({
                 message: "User ID must be positive!",
             }),
-        week_start_date: z
+        weekStartDate: z
             .string({
                 message: "Week start date must be a string!",
             })
@@ -22,14 +22,14 @@ export class WeeklySummaryValidation {
             .refine((date) => !isNaN(Date.parse(date)), {
                 message: "Week start date must be a valid date format!",
             }),
-        avg_steps: z
+        avgSteps: z
             .number({
                 message: "Average steps must be a number!",
             })
             .min(0, {
                 message: "Average steps must be greater than or equal to 0!",
             }),
-        avg_sleep: z
+        avgSleep: z
             .number({
                 message: "Average sleep must be a number!",
             })
@@ -39,14 +39,14 @@ export class WeeklySummaryValidation {
             .max(24, {
                 message: "Average sleep cannot exceed 24 hours!",
             }),
-        avg_water: z
+        avgWater: z
             .number({
                 message: "Average water must be a number!",
             })
             .min(0, {
                 message: "Average water must be greater than or equal to 0!",
             }),
-        avg_calories: z
+        avgCalories: z
             .number({
                 message: "Average calories must be a number!",
             })
@@ -56,7 +56,7 @@ export class WeeklySummaryValidation {
     })
 
     static readonly GENERATE: ZodType = z.object({
-        week_start_date: z
+        weekStartDate: z
             .string({
                 message: "Week start date must be a string!",
             })

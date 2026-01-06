@@ -28,34 +28,34 @@ export type AggregateFriends = {
 
 export type FriendsAvgAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  friend_id: number | null
+  userId: number | null
+  friendId: number | null
 }
 
 export type FriendsSumAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  friend_id: number | null
+  userId: number | null
+  friendId: number | null
 }
 
 export type FriendsMinAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  friend_id: number | null
+  userId: number | null
+  friendId: number | null
   status: string | null
 }
 
 export type FriendsMaxAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  friend_id: number | null
+  userId: number | null
+  friendId: number | null
   status: string | null
 }
 
 export type FriendsCountAggregateOutputType = {
   id: number
-  user_id: number
-  friend_id: number
+  userId: number
+  friendId: number
   status: number
   _all: number
 }
@@ -63,34 +63,34 @@ export type FriendsCountAggregateOutputType = {
 
 export type FriendsAvgAggregateInputType = {
   id?: true
-  user_id?: true
-  friend_id?: true
+  userId?: true
+  friendId?: true
 }
 
 export type FriendsSumAggregateInputType = {
   id?: true
-  user_id?: true
-  friend_id?: true
+  userId?: true
+  friendId?: true
 }
 
 export type FriendsMinAggregateInputType = {
   id?: true
-  user_id?: true
-  friend_id?: true
+  userId?: true
+  friendId?: true
   status?: true
 }
 
 export type FriendsMaxAggregateInputType = {
   id?: true
-  user_id?: true
-  friend_id?: true
+  userId?: true
+  friendId?: true
   status?: true
 }
 
 export type FriendsCountAggregateInputType = {
   id?: true
-  user_id?: true
-  friend_id?: true
+  userId?: true
+  friendId?: true
   status?: true
   _all?: true
 }
@@ -183,8 +183,8 @@ export type FriendsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type FriendsGroupByOutputType = {
   id: number
-  user_id: number
-  friend_id: number
+  userId: number
+  friendId: number
   status: string
   _count: FriendsCountAggregateOutputType | null
   _avg: FriendsAvgAggregateOutputType | null
@@ -213,8 +213,8 @@ export type FriendsWhereInput = {
   OR?: Prisma.FriendsWhereInput[]
   NOT?: Prisma.FriendsWhereInput | Prisma.FriendsWhereInput[]
   id?: Prisma.IntFilter<"Friends"> | number
-  user_id?: Prisma.IntFilter<"Friends"> | number
-  friend_id?: Prisma.IntFilter<"Friends"> | number
+  userId?: Prisma.IntFilter<"Friends"> | number
+  friendId?: Prisma.IntFilter<"Friends"> | number
   status?: Prisma.StringFilter<"Friends"> | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   friend?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -222,8 +222,8 @@ export type FriendsWhereInput = {
 
 export type FriendsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   friend?: Prisma.UserOrderByWithRelationInput
@@ -234,8 +234,8 @@ export type FriendsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.FriendsWhereInput | Prisma.FriendsWhereInput[]
   OR?: Prisma.FriendsWhereInput[]
   NOT?: Prisma.FriendsWhereInput | Prisma.FriendsWhereInput[]
-  user_id?: Prisma.IntFilter<"Friends"> | number
-  friend_id?: Prisma.IntFilter<"Friends"> | number
+  userId?: Prisma.IntFilter<"Friends"> | number
+  friendId?: Prisma.IntFilter<"Friends"> | number
   status?: Prisma.StringFilter<"Friends"> | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   friend?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -243,8 +243,8 @@ export type FriendsWhereUniqueInput = Prisma.AtLeast<{
 
 export type FriendsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   _count?: Prisma.FriendsCountOrderByAggregateInput
   _avg?: Prisma.FriendsAvgOrderByAggregateInput
@@ -258,8 +258,8 @@ export type FriendsScalarWhereWithAggregatesInput = {
   OR?: Prisma.FriendsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.FriendsScalarWhereWithAggregatesInput | Prisma.FriendsScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Friends"> | number
-  user_id?: Prisma.IntWithAggregatesFilter<"Friends"> | number
-  friend_id?: Prisma.IntWithAggregatesFilter<"Friends"> | number
+  userId?: Prisma.IntWithAggregatesFilter<"Friends"> | number
+  friendId?: Prisma.IntWithAggregatesFilter<"Friends"> | number
   status?: Prisma.StringWithAggregatesFilter<"Friends"> | string
 }
 
@@ -271,8 +271,8 @@ export type FriendsCreateInput = {
 
 export type FriendsUncheckedCreateInput = {
   id?: number
-  user_id: number
-  friend_id: number
+  userId: number
+  friendId: number
   status: string
 }
 
@@ -284,15 +284,15 @@ export type FriendsUpdateInput = {
 
 export type FriendsUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  friend_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  friendId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type FriendsCreateManyInput = {
   id?: number
-  user_id: number
-  friend_id: number
+  userId: number
+  friendId: number
   status: string
 }
 
@@ -302,8 +302,8 @@ export type FriendsUpdateManyMutationInput = {
 
 export type FriendsUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  friend_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  friendId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -319,35 +319,35 @@ export type FriendsOrderByRelationAggregateInput = {
 
 export type FriendsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type FriendsAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
 }
 
 export type FriendsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type FriendsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type FriendsSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  friend_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  friendId?: Prisma.SortOrder
 }
 
 export type FriendsCreateNestedManyWithoutUserInput = {
@@ -441,7 +441,7 @@ export type FriendsCreateWithoutUserInput = {
 
 export type FriendsUncheckedCreateWithoutUserInput = {
   id?: number
-  friend_id: number
+  friendId: number
   status: string
 }
 
@@ -462,7 +462,7 @@ export type FriendsCreateWithoutFriendInput = {
 
 export type FriendsUncheckedCreateWithoutFriendInput = {
   id?: number
-  user_id: number
+  userId: number
   status: string
 }
 
@@ -497,8 +497,8 @@ export type FriendsScalarWhereInput = {
   OR?: Prisma.FriendsScalarWhereInput[]
   NOT?: Prisma.FriendsScalarWhereInput | Prisma.FriendsScalarWhereInput[]
   id?: Prisma.IntFilter<"Friends"> | number
-  user_id?: Prisma.IntFilter<"Friends"> | number
-  friend_id?: Prisma.IntFilter<"Friends"> | number
+  userId?: Prisma.IntFilter<"Friends"> | number
+  friendId?: Prisma.IntFilter<"Friends"> | number
   status?: Prisma.StringFilter<"Friends"> | string
 }
 
@@ -520,13 +520,13 @@ export type FriendsUpdateManyWithWhereWithoutFriendInput = {
 
 export type FriendsCreateManyUserInput = {
   id?: number
-  friend_id: number
+  friendId: number
   status: string
 }
 
 export type FriendsCreateManyFriendInput = {
   id?: number
-  user_id: number
+  userId: number
   status: string
 }
 
@@ -537,13 +537,13 @@ export type FriendsUpdateWithoutUserInput = {
 
 export type FriendsUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  friend_id?: Prisma.IntFieldUpdateOperationsInput | number
+  friendId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type FriendsUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  friend_id?: Prisma.IntFieldUpdateOperationsInput | number
+  friendId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -554,13 +554,13 @@ export type FriendsUpdateWithoutFriendInput = {
 
 export type FriendsUncheckedUpdateWithoutFriendInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type FriendsUncheckedUpdateManyWithoutFriendInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -568,8 +568,8 @@ export type FriendsUncheckedUpdateManyWithoutFriendInput = {
 
 export type FriendsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  user_id?: boolean
-  friend_id?: boolean
+  userId?: boolean
+  friendId?: boolean
   status?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   friend?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -577,8 +577,8 @@ export type FriendsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 
 export type FriendsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  user_id?: boolean
-  friend_id?: boolean
+  userId?: boolean
+  friendId?: boolean
   status?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   friend?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -586,8 +586,8 @@ export type FriendsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
 
 export type FriendsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  user_id?: boolean
-  friend_id?: boolean
+  userId?: boolean
+  friendId?: boolean
   status?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   friend?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -595,12 +595,12 @@ export type FriendsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 
 export type FriendsSelectScalar = {
   id?: boolean
-  user_id?: boolean
-  friend_id?: boolean
+  userId?: boolean
+  friendId?: boolean
   status?: boolean
 }
 
-export type FriendsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "friend_id" | "status", ExtArgs["result"]["friends"]>
+export type FriendsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "friendId" | "status", ExtArgs["result"]["friends"]>
 export type FriendsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   friend?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -622,8 +622,8 @@ export type $FriendsPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    user_id: number
-    friend_id: number
+    userId: number
+    friendId: number
     status: string
   }, ExtArgs["result"]["friends"]>
   composites: {}
@@ -1051,8 +1051,8 @@ export interface Prisma__FriendsClient<T, Null = never, ExtArgs extends runtime.
  */
 export interface FriendsFieldRefs {
   readonly id: Prisma.FieldRef<"Friends", 'Int'>
-  readonly user_id: Prisma.FieldRef<"Friends", 'Int'>
-  readonly friend_id: Prisma.FieldRef<"Friends", 'Int'>
+  readonly userId: Prisma.FieldRef<"Friends", 'Int'>
+  readonly friendId: Prisma.FieldRef<"Friends", 'Int'>
   readonly status: Prisma.FieldRef<"Friends", 'String'>
 }
     

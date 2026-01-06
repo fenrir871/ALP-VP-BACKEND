@@ -20,10 +20,10 @@ export class WeeklySummaryService {
     ): Promise<WeeklySummaryResponse[]> {
         const weeklySummaries = await prismaClient.weeklySummary.findMany({
             where: {
-                user_id: user.id,
+                userId: user.id,
             },
             orderBy: {
-                week_start_date: "desc",
+                weekStartDate: "desc",
             },
         })
 
@@ -48,8 +48,8 @@ export class WeeklySummaryService {
     ): Promise<WeeklySummaryResponse> {
         const weeklySummary = await prismaClient.weeklySummary.findFirst({
             where: {
-                user_id: user.id,
-                week_start_date: weekStartDate,
+                userId: user.id,
+                weekStartDate: weekStartDate,
             },
         })
 
@@ -77,10 +77,10 @@ export class WeeklySummaryService {
     ): Promise<WeeklySummaryResponse> {
         const weeklySummary = await prismaClient.weeklySummary.findFirst({
             where: {
-                user_id: user.id,
+                userId: user.id,
             },
             orderBy: {
-                week_start_date: "desc",
+                weekStartDate: "desc",
             },
         })
 
@@ -97,7 +97,7 @@ export class WeeklySummaryService {
     ): Promise<WeeklySummary> {
         const weeklySummary = await prismaClient.weeklySummary.findFirst({
             where: {
-                user_id: userId,
+                userId: userId,
                 id: weeklyId,
             },
         })
@@ -115,10 +115,10 @@ export class WeeklySummaryService {
     ): Promise<string> {
         const validatedData = Validation.validate(
             WeeklySummaryValidation.GENERATE,
-            { week_start_date: weekStartDate }
+            { weekStartDate: weekStartDate }
         )
 
-        const parsedDate = new Date(validatedData.week_start_date)
+        const parsedDate = new Date(validatedData.weekStartDate)
 
         // Calculate week end date (6 days after start)
         const weekEndDate = new Date(parsedDate)
@@ -127,8 +127,8 @@ export class WeeklySummaryService {
         // Check if weekly summary already exists for this week
         const existingSummary = await prismaClient.weeklySummary.findFirst({
             where: {
-                user_id: user.id,
-                week_start_date: parsedDate,
+                userId: user.id,
+                weekStartDate: parsedDate,
             },
         })
 
@@ -137,9 +137,9 @@ export class WeeklySummaryService {
         }
 
         // Get all daily activities for the week
-        const dailyActivities = await prismaClient.todayActivity.findMany({
+        const dailyActivities = await prismaClient.dailyActivity.findMany({
             where: {
-                user_id: user.id,
+                userId: user.id,
                 date: {
                     gte: parsedDate,
                     lte: weekEndDate,
@@ -158,12 +158,12 @@ export class WeeklySummaryService {
             totalDays
         const avgSleep =
             dailyActivities.reduce(
-                (sum, activity) => sum + activity.sleep_hours,
+                (sum, activity) => sum + activity.sleepHours,
                 0
             ) / totalDays
         const avgWater =
             dailyActivities.reduce(
-                (sum, activity) => sum + activity.water_intake,
+                (sum, activity) => sum + activity.waterIntake,
                 0
             ) / totalDays
         const avgCalories =
@@ -178,16 +178,16 @@ export class WeeklySummaryService {
         // Create weekly summary
         await prismaClient.weeklySummary.create({
             data: {
-                user_id: user.id,
-                week_start_date: parsedDate,
-                avg_steps: Math.round(avgSteps),
-                avg_sleep: Math.round(avgSleep * 10) / 10, // 1 decimal place
-                avg_water: Math.round(avgWater * 10) / 10,
-                avg_calories: Math.round(avgCalories),
-                score_steps: scores.score_steps,
-                score_sleep: scores.score_sleep,
-                score_water: scores.score_water,
-                score_calories: scores.score_calories,
+                userId: user.id,
+                weekStartDate: parsedDate,
+                avgSteps: Math.round(avgSteps),
+                avgSleep: Math.round(avgSleep * 10) / 10, // 1 decimal place
+                avgWater: Math.round(avgWater * 10) / 10,
+                avgCalories: Math.round(avgCalories),
+                scoreSteps: scores.scoreSteps,
+                scoreSleep: scores.scoreSleep,
+                scoreWater: scores.scoreWater,
+                scoreCalories: scores.scoreCalories,
             },
         })
 
@@ -202,17 +202,17 @@ export class WeeklySummaryService {
             WeeklySummaryValidation.CREATE,
             {
                 ...reqData,
-                user_id: user.id
+                userId: user.id
             }
         )
 
-        const parsedDate = new Date(validatedData.week_start_date)
+        const parsedDate = new Date(validatedData.weekStartDate)
 
         // Check if weekly summary already exists for this week
         const existingSummary = await prismaClient.weeklySummary.findFirst({
             where: {
-                user_id: user.id,
-                week_start_date: parsedDate,
+                userId: user.id,
+                weekStartDate: parsedDate,
             },
         })
 
@@ -222,24 +222,24 @@ export class WeeklySummaryService {
 
         // Calculate scores
         const scores = calculateScores(
-            validatedData.avg_steps,
-            validatedData.avg_sleep,
-            validatedData.avg_water,
-            validatedData.avg_calories
+            validatedData.avgSteps,
+            validatedData.avgSleep,
+            validatedData.avgWater,
+            validatedData.avgCalories
         )
 
         await prismaClient.weeklySummary.create({
             data: {
-                user_id: user.id,
-                week_start_date: parsedDate,
-                avg_steps: validatedData.avg_steps,
-                avg_sleep: validatedData.avg_sleep,
-                avg_water: validatedData.avg_water,
-                avg_calories: validatedData.avg_calories,
-                score_steps: scores.score_steps,
-                score_sleep: scores.score_sleep,
-                score_water: scores.score_water,
-                score_calories: scores.score_calories,
+                userId: user.id,
+                weekStartDate: parsedDate,
+                avgSteps: validatedData.avgSteps,
+                avgSleep: validatedData.avgSleep,
+                avgWater: validatedData.avgWater,
+                avgCalories: validatedData.avgCalories,
+                scoreSteps: scores.scoreSteps,
+                scoreSleep: scores.scoreSleep,
+                scoreWater: scores.scoreWater,
+                scoreCalories: scores.scoreCalories,
             },
         })
 

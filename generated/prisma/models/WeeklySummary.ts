@@ -28,140 +28,140 @@ export type AggregateWeeklySummary = {
 
 export type WeeklySummaryAvgAggregateOutputType = {
   id: number | null
-  avg_steps: number | null
-  avg_sleep: number | null
-  avg_water: number | null
-  avg_calories: number | null
-  score_steps: number | null
-  score_sleep: number | null
-  score_water: number | null
-  score_calories: number | null
-  user_id: number | null
+  avgSteps: number | null
+  avgSleep: number | null
+  avgWater: number | null
+  avgCalories: number | null
+  scoreSteps: number | null
+  scoreSleep: number | null
+  scoreWater: number | null
+  scoreCalories: number | null
+  userId: number | null
 }
 
 export type WeeklySummarySumAggregateOutputType = {
   id: number | null
-  avg_steps: number | null
-  avg_sleep: number | null
-  avg_water: number | null
-  avg_calories: number | null
-  score_steps: number | null
-  score_sleep: number | null
-  score_water: number | null
-  score_calories: number | null
-  user_id: number | null
+  avgSteps: number | null
+  avgSleep: number | null
+  avgWater: number | null
+  avgCalories: number | null
+  scoreSteps: number | null
+  scoreSleep: number | null
+  scoreWater: number | null
+  scoreCalories: number | null
+  userId: number | null
 }
 
 export type WeeklySummaryMinAggregateOutputType = {
   id: number | null
-  week_start_date: Date | null
-  avg_steps: number | null
-  avg_sleep: number | null
-  avg_water: number | null
-  avg_calories: number | null
-  score_steps: number | null
-  score_sleep: number | null
-  score_water: number | null
-  score_calories: number | null
-  user_id: number | null
+  weekStartDate: Date | null
+  avgSteps: number | null
+  avgSleep: number | null
+  avgWater: number | null
+  avgCalories: number | null
+  scoreSteps: number | null
+  scoreSleep: number | null
+  scoreWater: number | null
+  scoreCalories: number | null
+  userId: number | null
 }
 
 export type WeeklySummaryMaxAggregateOutputType = {
   id: number | null
-  week_start_date: Date | null
-  avg_steps: number | null
-  avg_sleep: number | null
-  avg_water: number | null
-  avg_calories: number | null
-  score_steps: number | null
-  score_sleep: number | null
-  score_water: number | null
-  score_calories: number | null
-  user_id: number | null
+  weekStartDate: Date | null
+  avgSteps: number | null
+  avgSleep: number | null
+  avgWater: number | null
+  avgCalories: number | null
+  scoreSteps: number | null
+  scoreSleep: number | null
+  scoreWater: number | null
+  scoreCalories: number | null
+  userId: number | null
 }
 
 export type WeeklySummaryCountAggregateOutputType = {
   id: number
-  week_start_date: number
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
-  user_id: number
+  weekStartDate: number
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
+  userId: number
   _all: number
 }
 
 
 export type WeeklySummaryAvgAggregateInputType = {
   id?: true
-  avg_steps?: true
-  avg_sleep?: true
-  avg_water?: true
-  avg_calories?: true
-  score_steps?: true
-  score_sleep?: true
-  score_water?: true
-  score_calories?: true
-  user_id?: true
+  avgSteps?: true
+  avgSleep?: true
+  avgWater?: true
+  avgCalories?: true
+  scoreSteps?: true
+  scoreSleep?: true
+  scoreWater?: true
+  scoreCalories?: true
+  userId?: true
 }
 
 export type WeeklySummarySumAggregateInputType = {
   id?: true
-  avg_steps?: true
-  avg_sleep?: true
-  avg_water?: true
-  avg_calories?: true
-  score_steps?: true
-  score_sleep?: true
-  score_water?: true
-  score_calories?: true
-  user_id?: true
+  avgSteps?: true
+  avgSleep?: true
+  avgWater?: true
+  avgCalories?: true
+  scoreSteps?: true
+  scoreSleep?: true
+  scoreWater?: true
+  scoreCalories?: true
+  userId?: true
 }
 
 export type WeeklySummaryMinAggregateInputType = {
   id?: true
-  week_start_date?: true
-  avg_steps?: true
-  avg_sleep?: true
-  avg_water?: true
-  avg_calories?: true
-  score_steps?: true
-  score_sleep?: true
-  score_water?: true
-  score_calories?: true
-  user_id?: true
+  weekStartDate?: true
+  avgSteps?: true
+  avgSleep?: true
+  avgWater?: true
+  avgCalories?: true
+  scoreSteps?: true
+  scoreSleep?: true
+  scoreWater?: true
+  scoreCalories?: true
+  userId?: true
 }
 
 export type WeeklySummaryMaxAggregateInputType = {
   id?: true
-  week_start_date?: true
-  avg_steps?: true
-  avg_sleep?: true
-  avg_water?: true
-  avg_calories?: true
-  score_steps?: true
-  score_sleep?: true
-  score_water?: true
-  score_calories?: true
-  user_id?: true
+  weekStartDate?: true
+  avgSteps?: true
+  avgSleep?: true
+  avgWater?: true
+  avgCalories?: true
+  scoreSteps?: true
+  scoreSleep?: true
+  scoreWater?: true
+  scoreCalories?: true
+  userId?: true
 }
 
 export type WeeklySummaryCountAggregateInputType = {
   id?: true
-  week_start_date?: true
-  avg_steps?: true
-  avg_sleep?: true
-  avg_water?: true
-  avg_calories?: true
-  score_steps?: true
-  score_sleep?: true
-  score_water?: true
-  score_calories?: true
-  user_id?: true
+  weekStartDate?: true
+  avgSteps?: true
+  avgSleep?: true
+  avgWater?: true
+  avgCalories?: true
+  scoreSteps?: true
+  scoreSleep?: true
+  scoreWater?: true
+  scoreCalories?: true
+  userId?: true
   _all?: true
 }
 
@@ -253,16 +253,16 @@ export type WeeklySummaryGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type WeeklySummaryGroupByOutputType = {
   id: number
-  week_start_date: Date
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
-  user_id: number
+  weekStartDate: Date
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
+  userId: number
   _count: WeeklySummaryCountAggregateOutputType | null
   _avg: WeeklySummaryAvgAggregateOutputType | null
   _sum: WeeklySummarySumAggregateOutputType | null
@@ -290,31 +290,31 @@ export type WeeklySummaryWhereInput = {
   OR?: Prisma.WeeklySummaryWhereInput[]
   NOT?: Prisma.WeeklySummaryWhereInput | Prisma.WeeklySummaryWhereInput[]
   id?: Prisma.IntFilter<"WeeklySummary"> | number
-  week_start_date?: Prisma.DateTimeFilter<"WeeklySummary"> | Date | string
-  avg_steps?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_sleep?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_water?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_calories?: Prisma.FloatFilter<"WeeklySummary"> | number
-  score_steps?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_sleep?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_water?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_calories?: Prisma.IntFilter<"WeeklySummary"> | number
-  user_id?: Prisma.IntFilter<"WeeklySummary"> | number
+  weekStartDate?: Prisma.DateTimeFilter<"WeeklySummary"> | Date | string
+  avgSteps?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgSleep?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgWater?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgCalories?: Prisma.FloatFilter<"WeeklySummary"> | number
+  scoreSteps?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreSleep?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreWater?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreCalories?: Prisma.IntFilter<"WeeklySummary"> | number
+  userId?: Prisma.IntFilter<"WeeklySummary"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type WeeklySummaryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  week_start_date?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  weekStartDate?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -323,31 +323,31 @@ export type WeeklySummaryWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.WeeklySummaryWhereInput | Prisma.WeeklySummaryWhereInput[]
   OR?: Prisma.WeeklySummaryWhereInput[]
   NOT?: Prisma.WeeklySummaryWhereInput | Prisma.WeeklySummaryWhereInput[]
-  week_start_date?: Prisma.DateTimeFilter<"WeeklySummary"> | Date | string
-  avg_steps?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_sleep?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_water?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_calories?: Prisma.FloatFilter<"WeeklySummary"> | number
-  score_steps?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_sleep?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_water?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_calories?: Prisma.IntFilter<"WeeklySummary"> | number
-  user_id?: Prisma.IntFilter<"WeeklySummary"> | number
+  weekStartDate?: Prisma.DateTimeFilter<"WeeklySummary"> | Date | string
+  avgSteps?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgSleep?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgWater?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgCalories?: Prisma.FloatFilter<"WeeklySummary"> | number
+  scoreSteps?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreSleep?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreWater?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreCalories?: Prisma.IntFilter<"WeeklySummary"> | number
+  userId?: Prisma.IntFilter<"WeeklySummary"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type WeeklySummaryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  week_start_date?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  weekStartDate?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.WeeklySummaryCountOrderByAggregateInput
   _avg?: Prisma.WeeklySummaryAvgOrderByAggregateInput
   _max?: Prisma.WeeklySummaryMaxOrderByAggregateInput
@@ -360,110 +360,110 @@ export type WeeklySummaryScalarWhereWithAggregatesInput = {
   OR?: Prisma.WeeklySummaryScalarWhereWithAggregatesInput[]
   NOT?: Prisma.WeeklySummaryScalarWhereWithAggregatesInput | Prisma.WeeklySummaryScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
-  week_start_date?: Prisma.DateTimeWithAggregatesFilter<"WeeklySummary"> | Date | string
-  avg_steps?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
-  avg_sleep?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
-  avg_water?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
-  avg_calories?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
-  score_steps?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
-  score_sleep?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
-  score_water?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
-  score_calories?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
-  user_id?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
+  weekStartDate?: Prisma.DateTimeWithAggregatesFilter<"WeeklySummary"> | Date | string
+  avgSteps?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
+  avgSleep?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
+  avgWater?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
+  avgCalories?: Prisma.FloatWithAggregatesFilter<"WeeklySummary"> | number
+  scoreSteps?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
+  scoreSleep?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
+  scoreWater?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
+  scoreCalories?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
+  userId?: Prisma.IntWithAggregatesFilter<"WeeklySummary"> | number
 }
 
 export type WeeklySummaryCreateInput = {
-  week_start_date: Date | string
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
+  weekStartDate: Date | string
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
   user: Prisma.UserCreateNestedOneWithoutWeeklySummariesInput
 }
 
 export type WeeklySummaryUncheckedCreateInput = {
   id?: number
-  week_start_date: Date | string
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
-  user_id: number
+  weekStartDate: Date | string
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
+  userId: number
 }
 
 export type WeeklySummaryUpdateInput = {
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
   user?: Prisma.UserUpdateOneRequiredWithoutWeeklySummariesNestedInput
 }
 
 export type WeeklySummaryUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type WeeklySummaryCreateManyInput = {
   id?: number
-  week_start_date: Date | string
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
-  user_id: number
+  weekStartDate: Date | string
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
+  userId: number
 }
 
 export type WeeklySummaryUpdateManyMutationInput = {
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type WeeklySummaryUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type WeeklySummaryListRelationFilter = {
@@ -478,70 +478,70 @@ export type WeeklySummaryOrderByRelationAggregateInput = {
 
 export type WeeklySummaryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  week_start_date?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  weekStartDate?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WeeklySummaryAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WeeklySummaryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  week_start_date?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  weekStartDate?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WeeklySummaryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  week_start_date?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  weekStartDate?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WeeklySummarySumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  avg_steps?: Prisma.SortOrder
-  avg_sleep?: Prisma.SortOrder
-  avg_water?: Prisma.SortOrder
-  avg_calories?: Prisma.SortOrder
-  score_steps?: Prisma.SortOrder
-  score_sleep?: Prisma.SortOrder
-  score_water?: Prisma.SortOrder
-  score_calories?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  avgSteps?: Prisma.SortOrder
+  avgSleep?: Prisma.SortOrder
+  avgWater?: Prisma.SortOrder
+  avgCalories?: Prisma.SortOrder
+  scoreSteps?: Prisma.SortOrder
+  scoreSleep?: Prisma.SortOrder
+  scoreWater?: Prisma.SortOrder
+  scoreCalories?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WeeklySummaryCreateNestedManyWithoutUserInput = {
@@ -587,28 +587,28 @@ export type WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput = {
 }
 
 export type WeeklySummaryCreateWithoutUserInput = {
-  week_start_date: Date | string
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
+  weekStartDate: Date | string
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
 }
 
 export type WeeklySummaryUncheckedCreateWithoutUserInput = {
   id?: number
-  week_start_date: Date | string
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
+  weekStartDate: Date | string
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
 }
 
 export type WeeklySummaryCreateOrConnectWithoutUserInput = {
@@ -642,131 +642,131 @@ export type WeeklySummaryScalarWhereInput = {
   OR?: Prisma.WeeklySummaryScalarWhereInput[]
   NOT?: Prisma.WeeklySummaryScalarWhereInput | Prisma.WeeklySummaryScalarWhereInput[]
   id?: Prisma.IntFilter<"WeeklySummary"> | number
-  week_start_date?: Prisma.DateTimeFilter<"WeeklySummary"> | Date | string
-  avg_steps?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_sleep?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_water?: Prisma.FloatFilter<"WeeklySummary"> | number
-  avg_calories?: Prisma.FloatFilter<"WeeklySummary"> | number
-  score_steps?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_sleep?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_water?: Prisma.IntFilter<"WeeklySummary"> | number
-  score_calories?: Prisma.IntFilter<"WeeklySummary"> | number
-  user_id?: Prisma.IntFilter<"WeeklySummary"> | number
+  weekStartDate?: Prisma.DateTimeFilter<"WeeklySummary"> | Date | string
+  avgSteps?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgSleep?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgWater?: Prisma.FloatFilter<"WeeklySummary"> | number
+  avgCalories?: Prisma.FloatFilter<"WeeklySummary"> | number
+  scoreSteps?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreSleep?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreWater?: Prisma.IntFilter<"WeeklySummary"> | number
+  scoreCalories?: Prisma.IntFilter<"WeeklySummary"> | number
+  userId?: Prisma.IntFilter<"WeeklySummary"> | number
 }
 
 export type WeeklySummaryCreateManyUserInput = {
   id?: number
-  week_start_date: Date | string
-  avg_steps: number
-  avg_sleep: number
-  avg_water: number
-  avg_calories: number
-  score_steps: number
-  score_sleep: number
-  score_water: number
-  score_calories: number
+  weekStartDate: Date | string
+  avgSteps: number
+  avgSleep: number
+  avgWater: number
+  avgCalories: number
+  scoreSteps: number
+  scoreSleep: number
+  scoreWater: number
+  scoreCalories: number
 }
 
 export type WeeklySummaryUpdateWithoutUserInput = {
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type WeeklySummaryUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type WeeklySummaryUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  week_start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  avg_steps?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_sleep?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_water?: Prisma.FloatFieldUpdateOperationsInput | number
-  avg_calories?: Prisma.FloatFieldUpdateOperationsInput | number
-  score_steps?: Prisma.IntFieldUpdateOperationsInput | number
-  score_sleep?: Prisma.IntFieldUpdateOperationsInput | number
-  score_water?: Prisma.IntFieldUpdateOperationsInput | number
-  score_calories?: Prisma.IntFieldUpdateOperationsInput | number
+  weekStartDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avgSteps?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgSleep?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgWater?: Prisma.FloatFieldUpdateOperationsInput | number
+  avgCalories?: Prisma.FloatFieldUpdateOperationsInput | number
+  scoreSteps?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreSleep?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreWater?: Prisma.IntFieldUpdateOperationsInput | number
+  scoreCalories?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
 
 export type WeeklySummarySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  week_start_date?: boolean
-  avg_steps?: boolean
-  avg_sleep?: boolean
-  avg_water?: boolean
-  avg_calories?: boolean
-  score_steps?: boolean
-  score_sleep?: boolean
-  score_water?: boolean
-  score_calories?: boolean
-  user_id?: boolean
+  weekStartDate?: boolean
+  avgSteps?: boolean
+  avgSleep?: boolean
+  avgWater?: boolean
+  avgCalories?: boolean
+  scoreSteps?: boolean
+  scoreSleep?: boolean
+  scoreWater?: boolean
+  scoreCalories?: boolean
+  userId?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["weeklySummary"]>
 
 export type WeeklySummarySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  week_start_date?: boolean
-  avg_steps?: boolean
-  avg_sleep?: boolean
-  avg_water?: boolean
-  avg_calories?: boolean
-  score_steps?: boolean
-  score_sleep?: boolean
-  score_water?: boolean
-  score_calories?: boolean
-  user_id?: boolean
+  weekStartDate?: boolean
+  avgSteps?: boolean
+  avgSleep?: boolean
+  avgWater?: boolean
+  avgCalories?: boolean
+  scoreSteps?: boolean
+  scoreSleep?: boolean
+  scoreWater?: boolean
+  scoreCalories?: boolean
+  userId?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["weeklySummary"]>
 
 export type WeeklySummarySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  week_start_date?: boolean
-  avg_steps?: boolean
-  avg_sleep?: boolean
-  avg_water?: boolean
-  avg_calories?: boolean
-  score_steps?: boolean
-  score_sleep?: boolean
-  score_water?: boolean
-  score_calories?: boolean
-  user_id?: boolean
+  weekStartDate?: boolean
+  avgSteps?: boolean
+  avgSleep?: boolean
+  avgWater?: boolean
+  avgCalories?: boolean
+  scoreSteps?: boolean
+  scoreSleep?: boolean
+  scoreWater?: boolean
+  scoreCalories?: boolean
+  userId?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["weeklySummary"]>
 
 export type WeeklySummarySelectScalar = {
   id?: boolean
-  week_start_date?: boolean
-  avg_steps?: boolean
-  avg_sleep?: boolean
-  avg_water?: boolean
-  avg_calories?: boolean
-  score_steps?: boolean
-  score_sleep?: boolean
-  score_water?: boolean
-  score_calories?: boolean
-  user_id?: boolean
+  weekStartDate?: boolean
+  avgSteps?: boolean
+  avgSleep?: boolean
+  avgWater?: boolean
+  avgCalories?: boolean
+  scoreSteps?: boolean
+  scoreSleep?: boolean
+  scoreWater?: boolean
+  scoreCalories?: boolean
+  userId?: boolean
 }
 
-export type WeeklySummaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "week_start_date" | "avg_steps" | "avg_sleep" | "avg_water" | "avg_calories" | "score_steps" | "score_sleep" | "score_water" | "score_calories" | "user_id", ExtArgs["result"]["weeklySummary"]>
+export type WeeklySummaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "weekStartDate" | "avgSteps" | "avgSleep" | "avgWater" | "avgCalories" | "scoreSteps" | "scoreSleep" | "scoreWater" | "scoreCalories" | "userId", ExtArgs["result"]["weeklySummary"]>
 export type WeeklySummaryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -784,16 +784,16 @@ export type $WeeklySummaryPayload<ExtArgs extends runtime.Types.Extensions.Inter
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    week_start_date: Date
-    avg_steps: number
-    avg_sleep: number
-    avg_water: number
-    avg_calories: number
-    score_steps: number
-    score_sleep: number
-    score_water: number
-    score_calories: number
-    user_id: number
+    weekStartDate: Date
+    avgSteps: number
+    avgSleep: number
+    avgWater: number
+    avgCalories: number
+    scoreSteps: number
+    scoreSleep: number
+    scoreWater: number
+    scoreCalories: number
+    userId: number
   }, ExtArgs["result"]["weeklySummary"]>
   composites: {}
 }
@@ -1219,16 +1219,16 @@ export interface Prisma__WeeklySummaryClient<T, Null = never, ExtArgs extends ru
  */
 export interface WeeklySummaryFieldRefs {
   readonly id: Prisma.FieldRef<"WeeklySummary", 'Int'>
-  readonly week_start_date: Prisma.FieldRef<"WeeklySummary", 'DateTime'>
-  readonly avg_steps: Prisma.FieldRef<"WeeklySummary", 'Float'>
-  readonly avg_sleep: Prisma.FieldRef<"WeeklySummary", 'Float'>
-  readonly avg_water: Prisma.FieldRef<"WeeklySummary", 'Float'>
-  readonly avg_calories: Prisma.FieldRef<"WeeklySummary", 'Float'>
-  readonly score_steps: Prisma.FieldRef<"WeeklySummary", 'Int'>
-  readonly score_sleep: Prisma.FieldRef<"WeeklySummary", 'Int'>
-  readonly score_water: Prisma.FieldRef<"WeeklySummary", 'Int'>
-  readonly score_calories: Prisma.FieldRef<"WeeklySummary", 'Int'>
-  readonly user_id: Prisma.FieldRef<"WeeklySummary", 'Int'>
+  readonly weekStartDate: Prisma.FieldRef<"WeeklySummary", 'DateTime'>
+  readonly avgSteps: Prisma.FieldRef<"WeeklySummary", 'Float'>
+  readonly avgSleep: Prisma.FieldRef<"WeeklySummary", 'Float'>
+  readonly avgWater: Prisma.FieldRef<"WeeklySummary", 'Float'>
+  readonly avgCalories: Prisma.FieldRef<"WeeklySummary", 'Float'>
+  readonly scoreSteps: Prisma.FieldRef<"WeeklySummary", 'Int'>
+  readonly scoreSleep: Prisma.FieldRef<"WeeklySummary", 'Int'>
+  readonly scoreWater: Prisma.FieldRef<"WeeklySummary", 'Int'>
+  readonly scoreCalories: Prisma.FieldRef<"WeeklySummary", 'Int'>
+  readonly userId: Prisma.FieldRef<"WeeklySummary", 'Int'>
 }
     
 

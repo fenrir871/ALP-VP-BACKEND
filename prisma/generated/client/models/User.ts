@@ -243,7 +243,7 @@ export type UserWhereInput = {
   weeklySummaries?: Prisma.WeeklySummaryListRelationFilter
   friends?: Prisma.FriendsListRelationFilter
   friendOf?: Prisma.FriendsListRelationFilter
-  todayActivities?: Prisma.TodayActivityListRelationFilter
+  dailyActivities?: Prisma.DailyActivityListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -258,7 +258,7 @@ export type UserOrderByWithRelationInput = {
   weeklySummaries?: Prisma.WeeklySummaryOrderByRelationAggregateInput
   friends?: Prisma.FriendsOrderByRelationAggregateInput
   friendOf?: Prisma.FriendsOrderByRelationAggregateInput
-  todayActivities?: Prisma.TodayActivityOrderByRelationAggregateInput
+  dailyActivities?: Prisma.DailyActivityOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -276,7 +276,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   weeklySummaries?: Prisma.WeeklySummaryListRelationFilter
   friends?: Prisma.FriendsListRelationFilter
   friendOf?: Prisma.FriendsListRelationFilter
-  todayActivities?: Prisma.TodayActivityListRelationFilter
+  dailyActivities?: Prisma.DailyActivityListRelationFilter
 }, "id" | "username" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -320,7 +320,7 @@ export type UserCreateInput = {
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -335,7 +335,7 @@ export type UserUncheckedCreateInput = {
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -349,7 +349,7 @@ export type UserUpdateInput = {
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -364,7 +364,7 @@ export type UserUncheckedUpdateInput = {
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -461,18 +461,18 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type UserCreateNestedOneWithoutTodayActivitiesInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutTodayActivitiesInput, Prisma.UserUncheckedCreateWithoutTodayActivitiesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTodayActivitiesInput
+export type UserCreateNestedOneWithoutDailyActivitiesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDailyActivitiesInput, Prisma.UserUncheckedCreateWithoutDailyActivitiesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDailyActivitiesInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutTodayActivitiesNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutTodayActivitiesInput, Prisma.UserUncheckedCreateWithoutTodayActivitiesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTodayActivitiesInput
-  upsert?: Prisma.UserUpsertWithoutTodayActivitiesInput
+export type UserUpdateOneRequiredWithoutDailyActivitiesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDailyActivitiesInput, Prisma.UserUncheckedCreateWithoutDailyActivitiesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDailyActivitiesInput
+  upsert?: Prisma.UserUpsertWithoutDailyActivitiesInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTodayActivitiesInput, Prisma.UserUpdateWithoutTodayActivitiesInput>, Prisma.UserUncheckedUpdateWithoutTodayActivitiesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDailyActivitiesInput, Prisma.UserUpdateWithoutDailyActivitiesInput>, Prisma.UserUncheckedUpdateWithoutDailyActivitiesInput>
 }
 
 export type UserCreateNestedOneWithoutWeeklySummariesInput = {
@@ -517,7 +517,7 @@ export type UserUpdateOneRequiredWithoutFriendOfNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFriendOfInput, Prisma.UserUpdateWithoutFriendOfInput>, Prisma.UserUncheckedUpdateWithoutFriendOfInput>
 }
 
-export type UserCreateWithoutTodayActivitiesInput = {
+export type UserCreateWithoutDailyActivitiesInput = {
   name: string
   username: string
   phone: string
@@ -530,7 +530,7 @@ export type UserCreateWithoutTodayActivitiesInput = {
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
 }
 
-export type UserUncheckedCreateWithoutTodayActivitiesInput = {
+export type UserUncheckedCreateWithoutDailyActivitiesInput = {
   id?: number
   name: string
   username: string
@@ -544,23 +544,23 @@ export type UserUncheckedCreateWithoutTodayActivitiesInput = {
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
 }
 
-export type UserCreateOrConnectWithoutTodayActivitiesInput = {
+export type UserCreateOrConnectWithoutDailyActivitiesInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutTodayActivitiesInput, Prisma.UserUncheckedCreateWithoutTodayActivitiesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutDailyActivitiesInput, Prisma.UserUncheckedCreateWithoutDailyActivitiesInput>
 }
 
-export type UserUpsertWithoutTodayActivitiesInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutTodayActivitiesInput, Prisma.UserUncheckedUpdateWithoutTodayActivitiesInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutTodayActivitiesInput, Prisma.UserUncheckedCreateWithoutTodayActivitiesInput>
+export type UserUpsertWithoutDailyActivitiesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutDailyActivitiesInput, Prisma.UserUncheckedUpdateWithoutDailyActivitiesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutDailyActivitiesInput, Prisma.UserUncheckedCreateWithoutDailyActivitiesInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutTodayActivitiesInput = {
+export type UserUpdateToOneWithWhereWithoutDailyActivitiesInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutTodayActivitiesInput, Prisma.UserUncheckedUpdateWithoutTodayActivitiesInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutDailyActivitiesInput, Prisma.UserUncheckedUpdateWithoutDailyActivitiesInput>
 }
 
-export type UserUpdateWithoutTodayActivitiesInput = {
+export type UserUpdateWithoutDailyActivitiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   username?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -573,7 +573,7 @@ export type UserUpdateWithoutTodayActivitiesInput = {
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
 }
 
-export type UserUncheckedUpdateWithoutTodayActivitiesInput = {
+export type UserUncheckedUpdateWithoutDailyActivitiesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   username?: Prisma.StringFieldUpdateOperationsInput | string
@@ -597,7 +597,7 @@ export type UserCreateWithoutWeeklySummariesInput = {
   updatedAt?: Date | string
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutWeeklySummariesInput = {
@@ -611,7 +611,7 @@ export type UserUncheckedCreateWithoutWeeklySummariesInput = {
   updatedAt?: Date | string
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutWeeklySummariesInput = {
@@ -640,7 +640,7 @@ export type UserUpdateWithoutWeeklySummariesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWeeklySummariesInput = {
@@ -654,7 +654,7 @@ export type UserUncheckedUpdateWithoutWeeklySummariesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutFriendsInput = {
@@ -667,7 +667,7 @@ export type UserCreateWithoutFriendsInput = {
   updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsCreateNestedManyWithoutFriendInput
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFriendsInput = {
@@ -681,7 +681,7 @@ export type UserUncheckedCreateWithoutFriendsInput = {
   updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friendOf?: Prisma.FriendsUncheckedCreateNestedManyWithoutFriendInput
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFriendsInput = {
@@ -699,7 +699,7 @@ export type UserCreateWithoutFriendOfInput = {
   updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsCreateNestedManyWithoutUserInput
-  todayActivities?: Prisma.TodayActivityCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFriendOfInput = {
@@ -713,7 +713,7 @@ export type UserUncheckedCreateWithoutFriendOfInput = {
   updatedAt?: Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedCreateNestedManyWithoutUserInput
   friends?: Prisma.FriendsUncheckedCreateNestedManyWithoutUserInput
-  todayActivities?: Prisma.TodayActivityUncheckedCreateNestedManyWithoutUserInput
+  dailyActivities?: Prisma.DailyActivityUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFriendOfInput = {
@@ -742,7 +742,7 @@ export type UserUpdateWithoutFriendsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUpdateManyWithoutFriendNestedInput
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFriendsInput = {
@@ -756,7 +756,7 @@ export type UserUncheckedUpdateWithoutFriendsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friendOf?: Prisma.FriendsUncheckedUpdateManyWithoutFriendNestedInput
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutFriendOfInput = {
@@ -780,7 +780,7 @@ export type UserUpdateWithoutFriendOfInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUpdateManyWithoutUserNestedInput
-  todayActivities?: Prisma.TodayActivityUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFriendOfInput = {
@@ -794,7 +794,7 @@ export type UserUncheckedUpdateWithoutFriendOfInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   weeklySummaries?: Prisma.WeeklySummaryUncheckedUpdateManyWithoutUserNestedInput
   friends?: Prisma.FriendsUncheckedUpdateManyWithoutUserNestedInput
-  todayActivities?: Prisma.TodayActivityUncheckedUpdateManyWithoutUserNestedInput
+  dailyActivities?: Prisma.DailyActivityUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -806,14 +806,14 @@ export type UserCountOutputType = {
   weeklySummaries: number
   friends: number
   friendOf: number
-  todayActivities: number
+  dailyActivities: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   weeklySummaries?: boolean | UserCountOutputTypeCountWeeklySummariesArgs
   friends?: boolean | UserCountOutputTypeCountFriendsArgs
   friendOf?: boolean | UserCountOutputTypeCountFriendOfArgs
-  todayActivities?: boolean | UserCountOutputTypeCountTodayActivitiesArgs
+  dailyActivities?: boolean | UserCountOutputTypeCountDailyActivitiesArgs
 }
 
 /**
@@ -850,8 +850,8 @@ export type UserCountOutputTypeCountFriendOfArgs<ExtArgs extends runtime.Types.E
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountTodayActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.TodayActivityWhereInput
+export type UserCountOutputTypeCountDailyActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DailyActivityWhereInput
 }
 
 
@@ -867,7 +867,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   weeklySummaries?: boolean | Prisma.User$weeklySummariesArgs<ExtArgs>
   friends?: boolean | Prisma.User$friendsArgs<ExtArgs>
   friendOf?: boolean | Prisma.User$friendOfArgs<ExtArgs>
-  todayActivities?: boolean | Prisma.User$todayActivitiesArgs<ExtArgs>
+  dailyActivities?: boolean | Prisma.User$dailyActivitiesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -909,7 +909,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   weeklySummaries?: boolean | Prisma.User$weeklySummariesArgs<ExtArgs>
   friends?: boolean | Prisma.User$friendsArgs<ExtArgs>
   friendOf?: boolean | Prisma.User$friendOfArgs<ExtArgs>
-  todayActivities?: boolean | Prisma.User$todayActivitiesArgs<ExtArgs>
+  dailyActivities?: boolean | Prisma.User$dailyActivitiesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -921,7 +921,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     weeklySummaries: Prisma.$WeeklySummaryPayload<ExtArgs>[]
     friends: Prisma.$FriendsPayload<ExtArgs>[]
     friendOf: Prisma.$FriendsPayload<ExtArgs>[]
-    todayActivities: Prisma.$TodayActivityPayload<ExtArgs>[]
+    dailyActivities: Prisma.$DailyActivityPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1329,7 +1329,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   weeklySummaries<T extends Prisma.User$weeklySummariesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$weeklySummariesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WeeklySummaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   friends<T extends Prisma.User$friendsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   friendOf<T extends Prisma.User$friendOfArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$friendOfArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  todayActivities<T extends Prisma.User$todayActivitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$todayActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TodayActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  dailyActivities<T extends Prisma.User$dailyActivitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$dailyActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DailyActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1827,27 +1827,27 @@ export type User$friendOfArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 }
 
 /**
- * User.todayActivities
+ * User.dailyActivities
  */
-export type User$todayActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$dailyActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the TodayActivity
+   * Select specific fields to fetch from the DailyActivity
    */
-  select?: Prisma.TodayActivitySelect<ExtArgs> | null
+  select?: Prisma.DailyActivitySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the TodayActivity
+   * Omit specific fields from the DailyActivity
    */
-  omit?: Prisma.TodayActivityOmit<ExtArgs> | null
+  omit?: Prisma.DailyActivityOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.TodayActivityInclude<ExtArgs> | null
-  where?: Prisma.TodayActivityWhereInput
-  orderBy?: Prisma.TodayActivityOrderByWithRelationInput | Prisma.TodayActivityOrderByWithRelationInput[]
-  cursor?: Prisma.TodayActivityWhereUniqueInput
+  include?: Prisma.DailyActivityInclude<ExtArgs> | null
+  where?: Prisma.DailyActivityWhereInput
+  orderBy?: Prisma.DailyActivityOrderByWithRelationInput | Prisma.DailyActivityOrderByWithRelationInput[]
+  cursor?: Prisma.DailyActivityWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.TodayActivityScalarFieldEnum | Prisma.TodayActivityScalarFieldEnum[]
+  distinct?: Prisma.DailyActivityScalarFieldEnum | Prisma.DailyActivityScalarFieldEnum[]
 }
 
 /**

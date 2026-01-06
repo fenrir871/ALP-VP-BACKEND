@@ -12,5 +12,5 @@ app.use("/api", privateRouter)
 app.use(errorMiddleware)
 
 app.listen(PORT || 3000, () => {
-    console.log(`Connected to port ${PORT}`)
+    console.log(`Connected to port ${PORT || 3000}`)
 })

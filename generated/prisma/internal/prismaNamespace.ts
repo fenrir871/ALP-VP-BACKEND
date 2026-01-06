@@ -391,7 +391,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  TodayActivity: 'TodayActivity',
+  DailyActivity: 'DailyActivity',
   WeeklySummary: 'WeeklySummary',
   Friends: 'Friends'
 } as const
@@ -409,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "todayActivity" | "weeklySummary" | "friends"
+    modelProps: "user" | "dailyActivity" | "weeklySummary" | "friends"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -487,77 +487,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    TodayActivity: {
-      payload: Prisma.$TodayActivityPayload<ExtArgs>
-      fields: Prisma.TodayActivityFieldRefs
+    DailyActivity: {
+      payload: Prisma.$DailyActivityPayload<ExtArgs>
+      fields: Prisma.DailyActivityFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TodayActivityFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload> | null
+          args: Prisma.DailyActivityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TodayActivityFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>
+          args: Prisma.DailyActivityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>
         }
         findFirst: {
-          args: Prisma.TodayActivityFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload> | null
+          args: Prisma.DailyActivityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TodayActivityFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>
+          args: Prisma.DailyActivityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>
         }
         findMany: {
-          args: Prisma.TodayActivityFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>[]
+          args: Prisma.DailyActivityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>[]
         }
         create: {
-          args: Prisma.TodayActivityCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>
+          args: Prisma.DailyActivityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>
         }
         createMany: {
-          args: Prisma.TodayActivityCreateManyArgs<ExtArgs>
+          args: Prisma.DailyActivityCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TodayActivityCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>[]
+          args: Prisma.DailyActivityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>[]
         }
         delete: {
-          args: Prisma.TodayActivityDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>
+          args: Prisma.DailyActivityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>
         }
         update: {
-          args: Prisma.TodayActivityUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>
+          args: Prisma.DailyActivityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>
         }
         deleteMany: {
-          args: Prisma.TodayActivityDeleteManyArgs<ExtArgs>
+          args: Prisma.DailyActivityDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TodayActivityUpdateManyArgs<ExtArgs>
+          args: Prisma.DailyActivityUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TodayActivityUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>[]
+          args: Prisma.DailyActivityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>[]
         }
         upsert: {
-          args: Prisma.TodayActivityUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TodayActivityPayload>
+          args: Prisma.DailyActivityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DailyActivityPayload>
         }
         aggregate: {
-          args: Prisma.TodayActivityAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTodayActivity>
+          args: Prisma.DailyActivityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDailyActivity>
         }
         groupBy: {
-          args: Prisma.TodayActivityGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TodayActivityGroupByOutputType>[]
+          args: Prisma.DailyActivityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DailyActivityGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TodayActivityCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TodayActivityCountAggregateOutputType> | number
+          args: Prisma.DailyActivityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DailyActivityCountAggregateOutputType> | number
         }
       }
     }
@@ -751,37 +751,42 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  username: 'username',
+  phone: 'phone',
   email: 'email',
-  password: 'password'
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const TodayActivityScalarFieldEnum = {
+export const DailyActivityScalarFieldEnum = {
   id: 'id',
   date: 'date',
   steps: 'steps',
-  sleep_hours: 'sleep_hours',
+  sleepHours: 'sleepHours',
+  waterIntake: 'waterIntake',
   calories: 'calories',
-  user_id: 'user_id'
+  userId: 'userId'
 } as const
 
-export type TodayActivityScalarFieldEnum = (typeof TodayActivityScalarFieldEnum)[keyof typeof TodayActivityScalarFieldEnum]
+export type DailyActivityScalarFieldEnum = (typeof DailyActivityScalarFieldEnum)[keyof typeof DailyActivityScalarFieldEnum]
 
 
 export const WeeklySummaryScalarFieldEnum = {
   id: 'id',
-  week_start_date: 'week_start_date',
-  avg_steps: 'avg_steps',
-  avg_sleep: 'avg_sleep',
-  avg_water: 'avg_water',
-  avg_calories: 'avg_calories',
-  score_steps: 'score_steps',
-  score_sleep: 'score_sleep',
-  score_water: 'score_water',
-  score_calories: 'score_calories',
-  user_id: 'user_id'
+  weekStartDate: 'weekStartDate',
+  avgSteps: 'avgSteps',
+  avgSleep: 'avgSleep',
+  avgWater: 'avgWater',
+  avgCalories: 'avgCalories',
+  scoreSteps: 'scoreSteps',
+  scoreSleep: 'scoreSleep',
+  scoreWater: 'scoreWater',
+  scoreCalories: 'scoreCalories',
+  userId: 'userId'
 } as const
 
 export type WeeklySummaryScalarFieldEnum = (typeof WeeklySummaryScalarFieldEnum)[keyof typeof WeeklySummaryScalarFieldEnum]
@@ -789,8 +794,8 @@ export type WeeklySummaryScalarFieldEnum = (typeof WeeklySummaryScalarFieldEnum)
 
 export const FriendsScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  friend_id: 'friend_id',
+  userId: 'userId',
+  friendId: 'friendId',
   status: 'status'
 } as const
 
@@ -962,7 +967,7 @@ export interface PrismaClientOptions {
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  todayActivity?: Prisma.TodayActivityOmit
+  dailyActivity?: Prisma.DailyActivityOmit
   weeklySummary?: Prisma.WeeklySummaryOmit
   friends?: Prisma.FriendsOmit
 }

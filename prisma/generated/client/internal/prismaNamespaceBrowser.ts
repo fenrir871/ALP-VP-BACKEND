@@ -50,7 +50,7 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 export const ModelName = {
   User: 'User',
-  TodayActivity: 'TodayActivity',
+  DailyActivity: 'DailyActivity',
   WeeklySummary: 'WeeklySummary',
   Friends: 'Friends'
 } as const
@@ -85,31 +85,31 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const TodayActivityScalarFieldEnum = {
+export const DailyActivityScalarFieldEnum = {
   id: 'id',
   date: 'date',
   steps: 'steps',
-  sleep_hours: 'sleep_hours',
-  water_intake: 'water_intake',
+  sleepHours: 'sleepHours',
+  waterIntake: 'waterIntake',
   calories: 'calories',
-  user_id: 'user_id'
+  userId: 'userId'
 } as const
 
-export type TodayActivityScalarFieldEnum = (typeof TodayActivityScalarFieldEnum)[keyof typeof TodayActivityScalarFieldEnum]
+export type DailyActivityScalarFieldEnum = (typeof DailyActivityScalarFieldEnum)[keyof typeof DailyActivityScalarFieldEnum]
 
 
 export const WeeklySummaryScalarFieldEnum = {
   id: 'id',
-  week_start_date: 'week_start_date',
-  avg_steps: 'avg_steps',
-  avg_sleep: 'avg_sleep',
-  avg_water: 'avg_water',
-  avg_calories: 'avg_calories',
-  score_steps: 'score_steps',
-  score_sleep: 'score_sleep',
-  score_water: 'score_water',
-  score_calories: 'score_calories',
-  user_id: 'user_id'
+  weekStartDate: 'weekStartDate',
+  avgSteps: 'avgSteps',
+  avgSleep: 'avgSleep',
+  avgWater: 'avgWater',
+  avgCalories: 'avgCalories',
+  scoreSteps: 'scoreSteps',
+  scoreSleep: 'scoreSleep',
+  scoreWater: 'scoreWater',
+  scoreCalories: 'scoreCalories',
+  userId: 'userId'
 } as const
 
 export type WeeklySummaryScalarFieldEnum = (typeof WeeklySummaryScalarFieldEnum)[keyof typeof WeeklySummaryScalarFieldEnum]
@@ -117,8 +117,8 @@ export type WeeklySummaryScalarFieldEnum = (typeof WeeklySummaryScalarFieldEnum)
 
 export const FriendsScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  friend_id: 'friend_id',
+  userId: 'userId',
+  friendId: 'friendId',
   status: 'status'
 } as const
 

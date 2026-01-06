@@ -23,10 +23,10 @@ export * from './enums';
  */
 export type User = Prisma.UserModel
 /**
- * Model TodayActivity
+ * Model DailyActivity
  * 
  */
-export type TodayActivity = Prisma.TodayActivityModel
+export type DailyActivity = Prisma.DailyActivityModel
 /**
  * Model WeeklySummary
  * 

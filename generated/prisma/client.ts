@@ -40,7 +40,7 @@ export { Prisma }
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node")
-path.join(process.cwd(), "src/generated/prisma/query_engine-windows.dll.node")
+path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
 
 /**
  * Model User
@@ -48,10 +48,10 @@ path.join(process.cwd(), "src/generated/prisma/query_engine-windows.dll.node")
  */
 export type User = Prisma.UserModel
 /**
- * Model TodayActivity
+ * Model DailyActivity
  * 
  */
-export type TodayActivity = Prisma.TodayActivityModel
+export type DailyActivity = Prisma.DailyActivityModel
 /**
  * Model WeeklySummary
  * 

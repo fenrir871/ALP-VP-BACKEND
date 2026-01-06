@@ -2,9 +2,9 @@ import { NextFunction, Response } from "express"
 import { UserRequest } from "../models/user-request-model"
 import { DailyActivityService } from "../services/dailyActivity-service"
 import {
-    CreateTodayActivityRequest,
-    UpdateTodayActivityRequest,
-} from "../models/TodayActivity-model"
+    CreateDailyActivityRequest,
+    UpdateDailyActivityRequest,
+} from "../models/DailyActivity-model"
 
 export class DailyActivityController {
     static async getAllActivities(
@@ -85,7 +85,7 @@ export class DailyActivityController {
         next: NextFunction
     ) {
         try {
-            const reqData = req.body as CreateTodayActivityRequest
+            const reqData = req.body as CreateDailyActivityRequest
 
             const response = await DailyActivityService.createActivity(
                 req.user!,
@@ -106,7 +106,7 @@ export class DailyActivityController {
         next: NextFunction
     ) {
         try {
-            const reqData = req.body as UpdateTodayActivityRequest
+            const reqData = req.body as UpdateDailyActivityRequest
             const activityId = Number(req.params.activityId)
 
             const response = await DailyActivityService.updateActivity(

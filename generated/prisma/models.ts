@@ -9,7 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
-export type * from './models/TodayActivity'
+export type * from './models/DailyActivity'
 export type * from './models/WeeklySummary'
 export type * from './models/Friends'
 export type * from './commonInputTypes'
