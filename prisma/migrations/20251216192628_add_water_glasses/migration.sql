@@ -2,6 +2,8 @@
 CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
     "name" VARCHAR(100) NOT NULL,
+    "username" VARCHAR(50) NOT NULL,
+    "phone" VARCHAR(20) NOT NULL,
     "email" VARCHAR(150) NOT NULL,
     "password" VARCHAR(100) NOT NULL,
 
@@ -15,6 +17,7 @@ CREATE TABLE "today_activity" (
     "steps" INTEGER NOT NULL,
     "sleep_hours" DOUBLE PRECISION NOT NULL,
     "calories" INTEGER NOT NULL,
+    "water_glasses" INTEGER NOT NULL DEFAULT 0,
     "user_id" INTEGER NOT NULL,
 
     CONSTRAINT "today_activity_pkey" PRIMARY KEY ("id")
@@ -46,6 +49,9 @@ CREATE TABLE "friends" (
 
     CONSTRAINT "friends_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_username_key" ON "users"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");

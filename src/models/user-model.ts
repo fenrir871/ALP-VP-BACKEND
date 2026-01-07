@@ -2,9 +2,6 @@ import { generateToken } from "../utils/jwt-util"
 
 export interface UserJWTPayload {
     id: number
-    name: string
-    username: string
-    phone: string
     email: string
 }
 
@@ -27,6 +24,8 @@ export interface UserResponse {
     username: string
     phone: string
     email: string
+    highest_score: number
+    friends_count: number
     token?: string
 }
 
@@ -40,6 +39,8 @@ export function toUserResponse(
     username: string,
     phone: string,
     email: string,
+    highest_score: number,
+    friends_count: number,
     includeToken: boolean = true
 ): UserResponse {
     const response: UserResponse = {
@@ -47,6 +48,8 @@ export function toUserResponse(
         name: name,
         username: username,
         phone: phone,
+        highest_score: highest_score,
+        friends_count: friends_count,
         email: email,
     }
 
@@ -54,9 +57,6 @@ export function toUserResponse(
         response.token = generateToken(
             {
                 id: id,
-                name: name,
-                username: username,
-                phone: phone,
                 email: email,
             },
             "1h"
