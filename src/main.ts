@@ -7,7 +7,7 @@ import { privateRouter } from "./routes/private-api"
 const app = express()
 
 app.use(express.json())
-app.use("/api/auth", publicRouter)
+app.use("/api", publicRouter)
 app.use("/api", privateRouter)
 app.use(errorMiddleware)
 
