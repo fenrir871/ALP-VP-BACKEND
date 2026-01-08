@@ -64,4 +64,27 @@ export class UserController {
             next(error)
         }
     }
+
+    static async searchUsers(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+        const query = req.query.q as string || ''
+        
+        if (!query || query.trim().length < 2) {
+            return res.status(400).json({
+                success: false,
+                message: 'Search query must be at least 2 characters'
+            })
+        }
+
+        const results = await UserService.searchUsers(req.user!.id, query.trim())
+
+        res.status(200).json({
+            success: true,
+            message: 'Search results retrieved',
+            data: results
+        })
+    } catch (error) {
+        next(error)
+    }
+}
 }

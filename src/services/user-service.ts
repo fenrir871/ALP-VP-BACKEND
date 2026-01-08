@@ -1,5 +1,5 @@
 import { ResponseError } from "../error/response-error"
-import { LoginUserRequest, RegisterUserRequest, UpdateUserRequest, UserJWTPayload, UserResponse } from "../models/user-model"
+import { LoginUserRequest, RegisterUserRequest, UpdateUserRequest, UserJWTPayload, UserResponse, UserSearchResult } from "../models/user-model"
 import { prismaClient } from "../utils/database-util"
 import { UserValidation } from "../validations/user-validation"
 import { Validation } from "../validations/validation"
@@ -183,6 +183,90 @@ export class UserService {
 
         return Math.max(...scores)
     }
+
+    static async searchUsers(currentUserId: number, query: string): Promise<UserSearchResult[]> {
+    // Find users matching the search query (excluding current user and existing friends)
+    const users = await prismaClient.user.findMany({
+        where: {
+            AND: [
+                {
+                    id: { not: currentUserId }
+                },
+                {
+                    OR: [
+                        { name: { contains: query, mode: 'insensitive' } },
+                        { username: { contains: query, mode: 'insensitive' } }
+                    ]
+                }
+            ]
+        },
+        select: {
+            id: true,
+            name: true,
+            username: true,
+            email: true
+        },
+        take: 20 // Limit results
+    })
+
+    // Get list of current user's friends (both accepted and pending)
+    const friendships = await prismaClient.friends.findMany({
+        where: {
+            OR: [
+                { user_id: currentUserId },
+                { friend_id: currentUserId }
+            ]
+        },
+        select: {
+            user_id: true,
+            friend_id: true,
+            status: true
+        }
+    })
+
+    // Create a set of friend IDs and their statuses
+    const friendMap = new Map<number, string>()
+    friendships.forEach(f => {
+        const friendId = f.user_id === currentUserId ? f.friend_id : f.user_id
+        friendMap.set(friendId, f.status)
+    })
+
+    // Get highest scores for all users
+    const userIds = users.map(u => u.id)
+    const summaries = await prismaClient.weeklySummary.findMany({
+        where: {
+            user_id: { in: userIds }
+        },
+        orderBy: { week_start_date: 'desc' }
+    })
+
+    const summaryMap = new Map<number, any>()
+    for (const s of summaries) {
+        if (!summaryMap.has(s.user_id)) {
+            summaryMap.set(s.user_id, s)
+        }
+    }
+
+    // Map users to search results
+    return users.map(user => {
+        const summary = summaryMap.get(user.id)
+        const highestScore = summary
+            ? Math.round(
+                (summary.score_steps + summary.score_sleep + summary.score_water + summary.score_calories) / 4
+            )
+            : 0
+
+        const friendshipStatus = friendMap.get(user.id) || 'none'
+
+        return {
+            id: user.id,
+            name: user.name,
+            username: user.username,
+            highest_score: highestScore,
+            friendship_status: friendshipStatus // 'none', 'pending', or 'accepted'
+        }
+    })
+}
 }
 
 export function toUserResponse(

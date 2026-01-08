@@ -3,6 +3,7 @@ import { authMiddleware } from "../middlewares/auth-middleware"
 import { DailyActivityController } from "../controllers/dailyactivity-controller"
 import { WeeklySummaryController } from "../controllers/WeeklySummary-controller"
 import { FriendController } from "../controllers/friend-controller"
+import { UserController } from "../controllers/user-controller"
 
 export const privateRouter = express.Router()
 
@@ -30,3 +31,4 @@ privateRouter.post("/friends/add", FriendController.addFriend)
 privateRouter.get("/friends/pending", FriendController.getPendingRequests)
 privateRouter.post("/friends/accept", FriendController.acceptFriendRequest)
 privateRouter.get("/friends/leaderboard", FriendController.getFriendLeaderboard)
+privateRouter.get("/users/search", UserController.searchUsers)
