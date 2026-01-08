@@ -33,6 +33,14 @@ export interface UpdateUserRequest {
     name: string
 }
 
+export interface UserSearchResult {
+    id: number
+    name: string
+    username: string
+    highest_score: number
+    friendship_status: string
+}
+
 export function toUserResponse(
     id: number,
     name: string,
